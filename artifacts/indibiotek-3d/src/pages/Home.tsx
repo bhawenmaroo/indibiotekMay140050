@@ -531,15 +531,15 @@ export default function Home() {
       {/* ─── DUAL FEATURE — pipette + sprout zigzag ─── */}
       <section className="relative px-5 sm:px-6 md:px-12 pt-12 pb-14 sm:pt-16 sm:pb-20" style={{ background: BG_ALT }}>
         <div className="max-w-[1180px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-10 items-center mb-10 sm:mb-16">
-          <div className="lg:col-span-6 reveal">
-            <div className="img-float-wrap">
-              <img
-                src="/national-one-health.png"
-                alt="National One Health Mission"
-                style={{ objectFit: "cover" }}
-              />
-            </div>
-          </div>
+          <Tilt3D className="lg:col-span-6 reveal" max={6} scale={1.01}>
+            <div style={{
+              backgroundImage: `url("/national-one-health.png")`,
+              backgroundSize: "cover", backgroundPosition: "center",
+              borderRadius: 16, minHeight: "clamp(220px, 50vw, 360px)",
+              border: "1px solid rgba(14,42,28,0.08)",
+              boxShadow: "0 16px 40px rgba(14,42,28,0.10)",
+            }} />
+          </Tilt3D>
           <div className="lg:col-span-6 reveal">
             <div style={{
               fontFamily: "Menlo, monospace",
