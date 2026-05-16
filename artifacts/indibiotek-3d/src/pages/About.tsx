@@ -458,7 +458,7 @@ export default function About() {
                 margin: "0 auto",
               }}
             >
-              The team building Indibiotek.
+              The Team Building Indibiotek
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
