@@ -547,7 +547,7 @@ export default function Home() {
               textTransform: "uppercase", color: ACCENT,
               marginBottom: 14,
             }}>
-              — 04 / Lifesciences
+              — 03 / Lifesciences
             </div>
             <h2 className="font-display mb-4" style={{
               fontSize: "clamp(1.8rem, 3.4vw, 2.6rem)",
@@ -580,7 +580,7 @@ export default function Home() {
               textTransform: "uppercase", color: ACCENT,
               marginBottom: 14,
             }}>
-              — 05 / Scientific
+              — 04 / Scientific
             </div>
             <h2 className="font-display mb-4" style={{
               fontSize: "clamp(1.4rem, 2.6vw, 2rem)",
@@ -645,7 +645,7 @@ export default function Home() {
               marginBottom: 22,
             }}
           >
-            — 06 / From Lab to Field
+            — 05 / From Lab to Field
           </div>
           <h2
             className="reveal font-display"
@@ -716,7 +716,7 @@ export default function Home() {
                     marginBottom: 22,
                   }}
                 >
-                  — 07 / Partner with us
+                  — 06 / Partner with us
                 </div>
                 <h2
                   className="font-display"
