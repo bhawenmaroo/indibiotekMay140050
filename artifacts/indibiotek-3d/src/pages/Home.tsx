@@ -373,7 +373,7 @@ export default function Home() {
                   fontWeight: 700, color: TEXT_DARK, maxWidth: "16ch",
                 }}
               >
-                Three pillars, one company
+                Three Divisions, One Company
               </h2>
             </div>
           </div>
