@@ -533,12 +533,17 @@ export default function Home() {
         <div className="max-w-[1180px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-10 items-center mb-10 sm:mb-16">
           <Tilt3D className="lg:col-span-6 reveal" max={6} scale={1.01}>
             <div style={{
-              backgroundImage: `url("/national-one-health.png")`,
-              backgroundSize: "cover", backgroundPosition: "center",
-              borderRadius: 16, minHeight: "clamp(220px, 50vw, 360px)",
+              borderRadius: 16,
               border: "1px solid rgba(14,42,28,0.08)",
               boxShadow: "0 16px 40px rgba(14,42,28,0.10)",
-            }} />
+              overflow: "hidden",
+            }}>
+              <img
+                src="/national-one-health.png"
+                alt="National One Health Mission"
+                style={{ width: "100%", display: "block", objectFit: "cover" }}
+              />
+            </div>
           </Tilt3D>
           <div className="lg:col-span-6 reveal">
             <div style={{
