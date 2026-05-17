@@ -107,57 +107,43 @@ function LeaderCard({ p }: { p: Person }) {
       style={{
         background: "#FFFFFF",
         border: "1px solid rgba(14,42,28,0.08)",
-        borderRadius: 16,
+        borderRadius: 20,
         overflow: "hidden",
         height: "100%",
         display: "flex",
         flexDirection: "column",
+        alignItems: "center",
         boxShadow: "0 1px 0 rgba(255,255,255,1) inset, 0 14px 34px rgba(14,42,28,0.10)",
-        position: "relative",
+        padding: "32px 20px 28px",
+        textAlign: "center",
       }}
       data-testid={`person-${p.name.toLowerCase().replace(/[^a-z]/g, "")}`}
     >
-      {/* Tall portrait photo */}
-      <div
-        style={{
-          width: "100%",
-          aspectRatio: "4 / 5",
-          background: "#FAF9F7",
-          display: "flex",
-          alignItems: "flex-end",
-          justifyContent: "center",
-          position: "relative",
-          borderBottom: "1px solid rgba(14,42,28,0.06)",
-          overflow: "hidden",
-        }}
-      >
+      {/* Circular photo */}
+      <div style={{
+        width: 120, height: 120,
+        borderRadius: "50%",
+        overflow: "hidden",
+        border: `3px solid rgba(11,106,77,0.18)`,
+        boxShadow: "0 4px 18px rgba(11,106,77,0.14)",
+        marginBottom: 20,
+        flexShrink: 0,
+        background: ACCENT,
+        display: "flex", alignItems: "center", justifyContent: "center",
+      }}>
         {p.photo
           ? <img src={p.photo} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }} />
-          : <span style={{ color: "#FFFFFF", fontFamily: "var(--app-font-display, 'Outfit', sans-serif)", fontWeight: 600, fontSize: 56 }}>{initialsOf(p.name)}</span>
+          : <span style={{ color: "#fff", fontWeight: 700, fontSize: 40 }}>{initialsOf(p.name)}</span>
         }
       </div>
 
-      {/* Body — center aligned */}
-      <div
-        style={{
-          padding: "22px 22px 26px",
-          flex: 1,
-          display: "flex",
-          flexDirection: "column",
-          textAlign: "center",
-          alignItems: "center",
-        }}
-      >
-        <span
-          style={{
-            width: 28,
-            height: 2,
-            background: ACCENT,
-            boxShadow: `0 0 10px rgba(20,181,126,0.65), 0 0 4px rgba(11,106,77,0.9)`,
-            marginBottom: 14,
-            borderRadius: 2,
-          }}
-        />
+      {/* Body */}
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", flex: 1 }}>
+        <span style={{
+          width: 28, height: 2, background: ACCENT,
+          boxShadow: `0 0 10px rgba(20,181,126,0.65), 0 0 4px rgba(11,106,77,0.9)`,
+          marginBottom: 14, borderRadius: 2,
+        }} />
         <h4
           className="font-display"
           style={{
@@ -551,7 +537,32 @@ export default function About() {
       </section>
 
       {/* ─── PHOTO STRIP ─── */}
-      <div style={{ overflow: "hidden", width: "100%", paddingTop: 8, paddingBottom: 32, background: "#F4F8F5" }}>
+      <div style={{ background: "#F4F8F5", paddingTop: 40, paddingBottom: 0 }}>
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 md:px-16" style={{ marginBottom: 28 }}>
+          <div style={{
+            fontFamily: "Menlo, monospace", fontSize: 13, fontWeight: 700,
+            letterSpacing: "0.18em", textTransform: "uppercase",
+            color: "#0B6A4D", marginBottom: 14,
+            display: "flex", alignItems: "center", gap: 10,
+          }}>
+            <span style={{ display: "inline-block", width: 32, height: 2, background: "#0B6A4D", borderRadius: 2 }} />
+            Gallery
+          </div>
+          <h2 style={{
+            fontFamily: "'Inter', 'Segoe UI', system-ui, sans-serif",
+            fontSize: "clamp(1.6rem, 3vw, 2.4rem)",
+            fontWeight: 800, color: "#0E2A1C",
+            lineHeight: 1.15, letterSpacing: "-0.02em",
+            margin: 0, marginBottom: 8,
+          }}>
+            Our Journey in Pictures
+          </h2>
+          <p style={{ fontSize: "0.95rem", color: "rgba(14,42,28,0.6)", lineHeight: 1.65, margin: 0 }}>
+            A visual record of Indibiotek's work — from the lab bench to the field.
+          </p>
+        </div>
+      </div>
+      <div style={{ overflow: "hidden", width: "100%", paddingTop: 0, paddingBottom: 32, background: "#F4F8F5" }}>
         <div className="marquee-track" style={{ animationDuration: "38s", alignItems: "stretch" }}>
           {[0, 1].map(copy => (
             <div key={copy} style={{ display: "flex", gap: 12, paddingRight: 12 }}>
