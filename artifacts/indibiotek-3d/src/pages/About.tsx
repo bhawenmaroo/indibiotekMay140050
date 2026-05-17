@@ -296,6 +296,8 @@ const GALLERY_IMAGES = [
   { src: "/gallery/img-14.jpeg", caption: "PCR sample preparation" },
   { src: "/gallery/img-15.jpeg", caption: "Circuit board development" },
   { src: "/gallery/img-16.jpeg", caption: "Rapid diagnostic kit prototype" },
+  { src: "/gallery/img-17.jpg", caption: "Visit to C-CAMP, Bangalore" },
+  { src: "/gallery/img-18.jpg", caption: "C-CAMP — Centre for Cellular and Molecular Platforms" },
 ];
 
 function GalleryModal({ onClose }: { onClose: () => void }) {
