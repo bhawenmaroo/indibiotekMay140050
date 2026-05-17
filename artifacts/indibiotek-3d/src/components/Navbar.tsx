@@ -19,6 +19,7 @@ const NAV_MAIN = [
   { label: "R&D",                 href: "/rnd" },
   { label: "Publication & Patent",href: "/publications-patent" },
   { label: "Services",            href: "/services" },
+  { label: "Catalogues",          href: "/catalogues" },
   { label: "Careers",             href: "https://docs.google.com/forms/d/e/1FAIpQLScTZqh00Lhg8WmvrKbi1HZzeosr9unu0fEywbtqoyW-2iZr7A/viewform?usp=publish-editor", external: true },
 ];
 
