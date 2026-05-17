@@ -50,6 +50,7 @@ export default function Catalogues() {
                         fontSize: 15,
                         fontFamily: "'Inter', 'Segoe UI', system-ui, sans-serif",
                         fontWeight: 800,
+                        fontStyle: "italic",
                         letterSpacing: "-0.01em",
                         color: "#fff",
                         whiteSpace: "nowrap",
