@@ -217,95 +217,134 @@ export default function Home() {
       </section>
 
       {/* ─── VISION, MISSION & VALUES ─── */}
-      <section className="relative px-5 sm:px-6 md:px-12 pt-14 pb-10 sm:pt-20 sm:pb-14" style={{ background: BG }}>
-        <div className="max-w-[1180px] mx-auto">
+      <section style={{ background: DARK_BG, position: "relative", overflow: "hidden" }}>
+        {/* background texture */}
+        <div aria-hidden style={{
+          position: "absolute", inset: 0, pointerEvents: "none",
+          backgroundImage: "radial-gradient(ellipse 70% 60% at 80% 20%, rgba(20,181,126,0.10) 0%, transparent 70%), radial-gradient(ellipse 50% 50% at 10% 80%, rgba(200,255,77,0.05) 0%, transparent 60%)",
+        }} />
 
-          {/* Vision & Mission */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
-            {/* Vision */}
-            <div className="reveal" style={{
-              background: "#FFFFFF",
-              border: "1px solid rgba(14,42,28,0.08)",
-              borderRadius: 16,
-              padding: "clamp(24px,4vw,40px)",
-              boxShadow: "0 4px 20px rgba(14,42,28,0.06)",
+        <div className="max-w-[1180px] mx-auto px-5 sm:px-8 md:px-12" style={{ paddingTop: "clamp(60px,8vw,110px)", paddingBottom: "clamp(60px,8vw,110px)" }}>
+
+          {/* eyebrow */}
+          <div className="reveal" style={{ marginBottom: "clamp(40px,6vw,72px)" }}>
+            <span style={{
+              fontFamily: "Menlo, monospace", fontSize: 11, fontWeight: 700,
+              letterSpacing: "0.22em", textTransform: "uppercase",
+              color: LIME, opacity: 0.9,
+            }}>— Our Purpose</span>
+          </div>
+
+          {/* Vision — large statement */}
+          <div className="reveal" style={{ marginBottom: "clamp(48px,7vw,88px)" }}>
+            <div style={{
+              display: "flex", alignItems: "flex-start", gap: "clamp(16px,3vw,40px)",
+              flexWrap: "wrap",
             }}>
               <div style={{
-                display: "inline-flex", alignItems: "center", gap: 7,
-                background: "rgba(11,106,77,0.08)", borderRadius: 8,
-                padding: "5px 12px", marginBottom: 18,
+                fontFamily: "Menlo, monospace", fontSize: 11, fontWeight: 700,
+                letterSpacing: "0.18em", textTransform: "uppercase",
+                color: LIME, paddingTop: 10, minWidth: 70, flexShrink: 0,
+              }}>VISION</div>
+              <h3 style={{
+                fontSize: "clamp(1.6rem, 3.5vw, 2.6rem)",
+                fontWeight: 700,
+                color: "#F0FFF6",
+                lineHeight: 1.25,
+                letterSpacing: "-0.02em",
+                maxWidth: "22ch",
+                margin: 0,
               }}>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={ACCENT} strokeWidth="2" strokeLinecap="round">
-                  <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/>
-                </svg>
-                <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: ACCENT, fontFamily: "Menlo, monospace" }}>Vision</span>
-              </div>
-              <p style={{ color: TEXT_DARK, fontSize: "1rem", lineHeight: 1.75, fontWeight: 400 }}>
-                Indibiotek aims to be a leading biotechnology company that uses home-grown innovation, responsible manufacturing, and smart technology to improve human health and protect the environment.
-              </p>
-            </div>
-
-            {/* Mission */}
-            <div className="reveal" style={{
-              background: "#FFFFFF",
-              border: "1px solid rgba(14,42,28,0.08)",
-              borderRadius: 16,
-              padding: "clamp(24px,4vw,40px)",
-              boxShadow: "0 4px 20px rgba(14,42,28,0.06)",
-            }}>
-              <div style={{
-                display: "inline-flex", alignItems: "center", gap: 7,
-                background: "rgba(11,106,77,0.08)", borderRadius: 8,
-                padding: "5px 12px", marginBottom: 18,
-              }}>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={ACCENT} strokeWidth="2" strokeLinecap="round">
-                  <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
-                </svg>
-                <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: ACCENT, fontFamily: "Menlo, monospace" }}>Mission</span>
-              </div>
-              <p style={{ color: TEXT_DARK, fontSize: "1rem", lineHeight: 1.75, fontWeight: 400 }}>
-                We exist to transform the potential of local innovation into global biotech solutions — building sustainable systems, harnessing the power of data, and staying deeply committed to the health of people, communities, and the natural world.
-              </p>
+                A leading biotech built on{" "}
+                <em style={{ color: LIME, fontStyle: "italic" }}>home-grown innovation</em>
+                {" "}— improving human health &amp; protecting the planet.
+              </h3>
             </div>
           </div>
 
-          {/* Values */}
+          {/* thin divider */}
           <div className="reveal" style={{
-            background: "#FFFFFF",
-            border: "1px solid rgba(14,42,28,0.08)",
-            borderRadius: 16,
-            padding: "clamp(24px,4vw,40px)",
-            boxShadow: "0 4px 20px rgba(14,42,28,0.06)",
+            height: 1,
+            background: "linear-gradient(90deg, rgba(200,255,77,0.35) 0%, rgba(200,255,77,0.05) 60%, transparent 100%)",
+            marginBottom: "clamp(48px,7vw,88px)",
+          }} />
+
+          {/* Mission — two-column editorial */}
+          <div className="reveal" style={{
+            display: "grid",
+            gridTemplateColumns: "minmax(80px,140px) 1fr",
+            gap: "clamp(16px,3vw,48px)",
+            alignItems: "start",
+            marginBottom: "clamp(56px,8vw,100px)",
           }}>
-            <div style={{
-              display: "inline-flex", alignItems: "center", gap: 7,
-              background: "rgba(11,106,77,0.08)", borderRadius: 8,
-              padding: "5px 12px", marginBottom: 24,
+            <div>
+              <span style={{
+                fontFamily: "Menlo, monospace", fontSize: 11, fontWeight: 700,
+                letterSpacing: "0.18em", textTransform: "uppercase", color: LIME,
+              }}>MISSION</span>
+            </div>
+            <p style={{
+              fontSize: "clamp(1.05rem, 2vw, 1.35rem)",
+              color: "rgba(240,255,246,0.72)",
+              lineHeight: 1.70,
+              fontWeight: 300,
+              margin: 0,
+              maxWidth: "58ch",
             }}>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={ACCENT} strokeWidth="2" strokeLinecap="round">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-              </svg>
-              <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: ACCENT, fontFamily: "Menlo, monospace" }}>Values</span>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-              {[
-                { n: "01", title: "Indigenous Innovation" },
-                { n: "02", title: "Scientific Integrity" },
-                { n: "03", title: "Sustainability" },
-                { n: "04", title: "Data & Technology Excellence" },
-                { n: "05", title: "Collaboration & Inclusivity" },
-              ].map(v => (
-                <div key={v.n} style={{
-                  padding: "16px 18px",
-                  borderRadius: 10,
-                  background: "rgba(14,42,28,0.03)",
-                  border: "1px solid rgba(14,42,28,0.07)",
-                }}>
-                  <div style={{ fontFamily: "Menlo, monospace", fontSize: 10, fontWeight: 700, color: ACCENT_BRIGHT, letterSpacing: "0.14em", marginBottom: 8 }}>— {v.n}</div>
-                  <div style={{ fontSize: 13.5, fontWeight: 600, color: TEXT_DARK, lineHeight: 1.4 }}>{v.title}</div>
-                </div>
-              ))}
-            </div>
+              We exist to transform the potential of local innovation into global biotech solutions — building{" "}
+              <span style={{ color: "#F0FFF6", fontWeight: 500 }}>sustainable systems</span>, harnessing the power of{" "}
+              <span style={{ color: "#F0FFF6", fontWeight: 500 }}>data</span>, and staying deeply committed to the health of people, communities, and the natural world.
+            </p>
+          </div>
+
+          {/* Values — stacked large numbered list */}
+          <div className="reveal" style={{ marginBottom: "clamp(8px,2vw,20px)" }}>
+            <span style={{
+              fontFamily: "Menlo, monospace", fontSize: 11, fontWeight: 700,
+              letterSpacing: "0.22em", textTransform: "uppercase", color: LIME, opacity: 0.9,
+            }}>VALUES</span>
+          </div>
+          <div style={{ borderTop: "1px solid rgba(200,255,77,0.15)" }}>
+            {[
+              { n: "01", title: "Indigenous Innovation" },
+              { n: "02", title: "Scientific Integrity" },
+              { n: "03", title: "Sustainability" },
+              { n: "04", title: "Data & Technology Excellence" },
+              { n: "05", title: "Collaboration & Inclusivity" },
+            ].map((v, i) => (
+              <div key={v.n} className="reveal" style={{
+                display: "flex", alignItems: "center",
+                gap: "clamp(20px,4vw,56px)",
+                padding: "clamp(18px,2.5vw,28px) 0",
+                borderBottom: "1px solid rgba(200,255,77,0.10)",
+                transition: "background 0.2s",
+              }}>
+                <span style={{
+                  fontFamily: "Menlo, monospace",
+                  fontSize: "clamp(2.2rem,4vw,3.5rem)",
+                  fontWeight: 700,
+                  color: "rgba(200,255,77,0.18)",
+                  lineHeight: 1,
+                  minWidth: "3ch",
+                  letterSpacing: "-0.04em",
+                  flexShrink: 0,
+                }}>{v.n}</span>
+                <span style={{
+                  fontSize: "clamp(1.1rem, 2.2vw, 1.6rem)",
+                  fontWeight: 600,
+                  color: "#F0FFF6",
+                  letterSpacing: "-0.01em",
+                  lineHeight: 1.2,
+                }}>{v.title}</span>
+                <span style={{
+                  marginLeft: "auto", flexShrink: 0,
+                  width: 32, height: 32, borderRadius: "50%",
+                  border: "1px solid rgba(200,255,77,0.20)",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  color: LIME, fontSize: 14, opacity: 0.6,
+                }}>↗</span>
+              </div>
+            ))}
           </div>
 
         </div>
