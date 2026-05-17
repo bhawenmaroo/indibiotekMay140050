@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import GALLERY_IMAGES from "@/gallery-images";
 import { Link } from "wouter";
 import { gsap } from "gsap";
@@ -903,8 +904,8 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Lightbox */}
-      {lightbox !== null && (
+      {/* Lightbox — portalled to body to escape stacking contexts */}
+      {lightbox !== null && createPortal(
         <div
           className="gallery-backdrop"
           onClick={() => setLightbox(null)}
@@ -976,7 +977,7 @@ export default function Home() {
             )}
           </div>
         </div>
-      )}
+      , document.body)}
     </div>
   );
 }

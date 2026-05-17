@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import GALLERY_IMAGES from "@/gallery-images";
 
 const TEXT_BODY = "rgba(14,42,28,0.65)";
@@ -112,8 +113,8 @@ export default function Gallery() {
         </div>
       </div>
 
-      {/* Expanded image overlay */}
-      {lightbox !== null && (
+      {/* Expanded image overlay — portalled to body to escape stacking contexts */}
+      {lightbox !== null && createPortal(
         <div
           className="gallery-backdrop"
           onClick={() => setLightbox(null)}
@@ -192,7 +193,7 @@ export default function Gallery() {
             )}
           </div>
         </div>
-      )}
+      , document.body)}
     </div>
   );
 }
