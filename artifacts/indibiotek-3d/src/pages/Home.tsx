@@ -211,16 +211,6 @@ export default function Home() {
             Biotech solutions for <span style={{ color: ACCENT_BRIGHT, fontStyle: "italic" }}>people</span> and <span style={{ color: ACCENT_BRIGHT, fontStyle: "italic" }}>planet</span>
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
-            <p
-              className="reveal lg:col-span-7"
-              style={{
-                color: TEXT_BODY,
-                fontSize: "1.15rem", lineHeight: 1.65, fontWeight: 400,
-                maxWidth: 620,
-              }}
-            >
-              We bring deep scientific capability and operational rigour together to build durable bio-based businesses across human health, agriculture, scientific services and the environment — including bioremediation and circular waste management.
-            </p>
           </div>
         </div>
       </section>
