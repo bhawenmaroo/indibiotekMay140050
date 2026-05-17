@@ -250,22 +250,27 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14">
 
             {/* Mission */}
-            <div className="reveal">
+            <div className="reveal" style={{
+              borderLeft: `3px solid ${ACCENT_BRIGHT}`,
+              paddingLeft: "clamp(20px,3vw,40px)",
+            }}>
               <div style={{
                 fontFamily: "Menlo, monospace", fontSize: 10, fontWeight: 700,
                 letterSpacing: "0.22em", textTransform: "uppercase",
-                color: ACCENT, marginBottom: 16,
+                color: ACCENT, marginBottom: 14,
               }}>Mission</div>
               <p style={{
-                fontSize: "clamp(0.95rem, 1.4vw, 1.1rem)",
-                color: "rgba(14,42,28,0.70)",
-                lineHeight: 1.75,
-                fontWeight: 400,
+                fontSize: "clamp(1.25rem, 2.6vw, 2rem)",
+                fontWeight: 700,
+                color: TEXT_DARK,
+                lineHeight: 1.3,
+                letterSpacing: "-0.02em",
                 margin: 0,
+                maxWidth: "30ch",
               }}>
-                We exist to transform the potential of local innovation into global biotech solutions — building{" "}
-                <span style={{ color: TEXT_DARK, fontWeight: 600 }}>sustainable systems</span>, harnessing the power of{" "}
-                <span style={{ color: TEXT_DARK, fontWeight: 600 }}>data</span>, and staying deeply committed to the health of people, communities, and the natural world.
+                Transforming local innovation into{" "}
+                <em style={{ color: ACCENT_BRIGHT, fontStyle: "italic" }}>global biotech solutions</em>
+                {" "}— for people, communities &amp; the natural world.
               </p>
             </div>
 
