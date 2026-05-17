@@ -1,8 +1,16 @@
-import { PageShell, SectionHeading } from "@/components/PageShell";
+import { PageShell } from "@/components/PageShell";
 
 const ACCENT = "#0B6A4D";
 const ACCENT_BRIGHT = "#14B57E";
 const TEXT_DARK = "#0E2A1C";
+const TEXT_BODY = "rgba(14,42,28,0.72)";
+const BG = "#F4F8F5";
+
+const CATALOGUES = [
+  { sno: 1, division: "Lifesciences", name: "Lifesciences Product Catalogue 2024", link: "" },
+  { sno: 2, division: "Agriculture",  name: "Agriculture Solutions Catalogue 2024", link: "" },
+  { sno: 3, division: "Scientific",   name: "Scientific Instruments Catalogue 2024", link: "" },
+];
 
 export default function Catalogues() {
   return (
@@ -12,45 +20,118 @@ export default function Catalogues() {
       intro="Browse and download our product catalogues across all divisions. Detailed specifications, technical data, and ordering information for every product we offer."
     >
       <section className="px-5 sm:px-8 md:px-16 py-14 sm:py-20">
-        <div className="max-w-6xl mx-auto">
-          <SectionHeading eyebrow="Coming Soon" title="Catalogues in preparation" align="center" />
+        <div className="max-w-5xl mx-auto">
           <div
             className="page-reveal"
             style={{
-              maxWidth: 560,
-              margin: "0 auto",
-              textAlign: "center",
-              padding: "clamp(40px,6vw,72px) clamp(24px,4vw,48px)",
-              background: "rgba(255,255,255,0.80)",
+              background: "#fff",
               border: "1px solid rgba(14,42,28,0.08)",
-              borderRadius: 20,
-              boxShadow: "0 4px 20px rgba(14,42,28,0.06)",
+              borderRadius: 18,
+              boxShadow: "0 4px 24px rgba(14,42,28,0.07)",
+              overflow: "hidden",
             }}
           >
-            <div style={{
-              width: 60, height: 60, borderRadius: "50%",
-              background: `rgba(20,181,126,0.10)`,
-              display: "flex", alignItems: "center", justifyContent: "center",
-              margin: "0 auto 24px",
-            }}>
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke={ACCENT_BRIGHT} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                <polyline points="14 2 14 8 20 8"/>
-                <line x1="16" y1="13" x2="8" y2="13"/>
-                <line x1="16" y1="17" x2="8" y2="17"/>
-                <polyline points="10 9 9 9 8 9"/>
-              </svg>
-            </div>
-            <p style={{
-              fontSize: "1rem", color: "rgba(14,42,28,0.65)",
-              lineHeight: 1.7, margin: 0,
-            }}>
-              Our product catalogues are currently being prepared. Check back soon or{" "}
-              <a href="/contact" style={{ color: ACCENT_BRIGHT, fontWeight: 600, textDecoration: "none" }}>
-                contact us
-              </a>{" "}
-              directly for product information and specifications.
-            </p>
+            <table style={{ width: "100%", borderCollapse: "collapse" }}>
+              <thead>
+                <tr style={{ background: ACCENT }}>
+                  {["Sr. No.", "Division", "Catalogue Name", "View Catalogue"].map((col) => (
+                    <th
+                      key={col}
+                      style={{
+                        padding: "16px 20px",
+                        textAlign: "left",
+                        fontSize: 12,
+                        fontFamily: "'Menlo', 'Monaco', 'Courier New', monospace",
+                        fontWeight: 700,
+                        letterSpacing: "0.12em",
+                        textTransform: "uppercase",
+                        color: "#fff",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      {col}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {CATALOGUES.map((row, i) => (
+                  <tr
+                    key={row.sno}
+                    style={{
+                      background: i % 2 === 0 ? "#fff" : BG,
+                      borderBottom: "1px solid rgba(14,42,28,0.06)",
+                      transition: "background 0.15s",
+                    }}
+                    onMouseEnter={e => (e.currentTarget.style.background = "rgba(20,181,126,0.06)")}
+                    onMouseLeave={e => (e.currentTarget.style.background = i % 2 === 0 ? "#fff" : BG)}
+                  >
+                    <td style={{ padding: "16px 20px", fontSize: 14, color: TEXT_BODY, fontWeight: 500, width: 80 }}>
+                      {String(row.sno).padStart(2, "0")}
+                    </td>
+                    <td style={{ padding: "16px 20px", fontSize: 14, color: TEXT_DARK, fontWeight: 600 }}>
+                      <span style={{
+                        display: "inline-block",
+                        padding: "3px 10px",
+                        borderRadius: 999,
+                        fontSize: 12,
+                        fontWeight: 600,
+                        background: "rgba(11,106,77,0.08)",
+                        color: ACCENT,
+                      }}>
+                        {row.division}
+                      </span>
+                    </td>
+                    <td style={{ padding: "16px 20px", fontSize: 14, color: TEXT_DARK, fontWeight: 500 }}>
+                      {row.name}
+                    </td>
+                    <td style={{ padding: "16px 20px" }}>
+                      {row.link ? (
+                        <a
+                          href={row.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: 6,
+                            padding: "7px 16px",
+                            borderRadius: 999,
+                            fontSize: 13,
+                            fontWeight: 600,
+                            color: "#fff",
+                            background: ACCENT,
+                            textDecoration: "none",
+                            transition: "background 0.2s",
+                          }}
+                          onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = ACCENT_BRIGHT)}
+                          onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.background = ACCENT)}
+                        >
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                            <polyline points="15 3 21 3 21 9"/>
+                            <line x1="10" y1="14" x2="21" y2="3"/>
+                          </svg>
+                          View
+                        </a>
+                      ) : (
+                        <span style={{
+                          display: "inline-block",
+                          padding: "7px 16px",
+                          borderRadius: 999,
+                          fontSize: 13,
+                          fontWeight: 600,
+                          color: "rgba(14,42,28,0.35)",
+                          background: "rgba(14,42,28,0.05)",
+                        }}>
+                          Coming Soon
+                        </span>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
