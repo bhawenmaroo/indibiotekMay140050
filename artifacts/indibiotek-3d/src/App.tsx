@@ -13,6 +13,7 @@ import Services from "@/pages/Services";
 import Careers from "@/pages/Careers";
 import Contact from "@/pages/Contact";
 import PublicationsPatent from "@/pages/PublicationsPatent";
+import Gallery from "@/pages/Gallery";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { CursorParallaxProvider } from "@/components/CursorParallax";
@@ -45,6 +46,7 @@ function Router() {
       <Route path="/careers" component={Careers} />
       <Route path="/contact" component={Contact} />
       <Route path="/publications-patent" component={PublicationsPatent} />
+      <Route path="/gallery" component={Gallery} />
       <Route component={NotFound} />
     </Switch>
   );

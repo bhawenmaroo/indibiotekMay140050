@@ -694,7 +694,7 @@ export default function Home() {
                     marginBottom: 22,
                   }}
                 >
-                  — 06 / Partner with us
+                  — 06 / Newsletter & Gallery
                 </div>
                 <h2
                   className="font-display"
@@ -704,7 +704,7 @@ export default function Home() {
                     letterSpacing: "-0.025em", maxWidth: "18ch",
                   }}
                 >
-                  Build the next generation of <span style={{ color: LIME, fontStyle: "italic" }}>biology</span> with us.
+                  Stay updated &amp; explore our <span style={{ color: LIME, fontStyle: "italic" }}>journey</span>.
                 </h2>
               </div>
               <div className="lg:col-span-4 flex flex-col gap-3 lg:items-end">
@@ -712,25 +712,38 @@ export default function Home() {
                   color: "rgba(255,255,255,0.72)", fontSize: "0.95rem", lineHeight: 1.65,
                   fontWeight: 400, maxWidth: 360,
                 }}>
-                  Investors, researchers and industry partners — connect with our team to explore collaborations.
+                  Subscribe to our newsletter for the latest updates, or browse our gallery to see Indibiotek in action.
                 </p>
-                <a
-                  href="https://wa.me/919608768647"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-testid="button-cta-contact"
-                  className="cursor-pointer inline-flex items-center"
-                  style={{
-                    height: 48, padding: "0 22px", borderRadius: 10,
-                    background: LIME, color: DARK_BG,
-                    fontWeight: 700, fontSize: 12.5, letterSpacing: "0.10em",
-                    fontFamily: "Menlo, monospace",
-                    boxShadow: "0 8px 24px rgba(200,255,77,0.30)",
-                    textDecoration: "none",
-                  }}
-                >
-                  GET IN TOUCH →
-                </a>
+                <div className="flex flex-wrap gap-3 lg:justify-end">
+                  <span
+                    style={{
+                      height: 48, padding: "0 22px", borderRadius: 10,
+                      background: "rgba(255,255,255,0.10)",
+                      border: "1px solid rgba(255,255,255,0.20)",
+                      color: "rgba(255,255,255,0.55)",
+                      fontWeight: 700, fontSize: 12.5, letterSpacing: "0.10em",
+                      fontFamily: "Menlo, monospace",
+                      display: "inline-flex", alignItems: "center",
+                      cursor: "default",
+                    }}
+                  >
+                    NEWSLETTER — COMING SOON
+                  </span>
+                  <Link href="/gallery">
+                    <span
+                      className="cursor-pointer inline-flex items-center"
+                      style={{
+                        height: 48, padding: "0 22px", borderRadius: 10,
+                        background: LIME, color: DARK_BG,
+                        fontWeight: 700, fontSize: 12.5, letterSpacing: "0.10em",
+                        fontFamily: "Menlo, monospace",
+                        boxShadow: "0 8px 24px rgba(200,255,77,0.30)",
+                      }}
+                    >
+                      EXPLORE GALLERY →
+                    </span>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
