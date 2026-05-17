@@ -7,9 +7,15 @@ const TEXT_BODY = "rgba(14,42,28,0.72)";
 const BG = "#F4F8F5";
 
 const CATALOGUES = [
-  { sno: 1, division: "Lifesciences", name: "Lifesciences Product Catalogue 2024", link: "" },
-  { sno: 2, division: "Agriculture",  name: "Agriculture Solutions Catalogue 2024", link: "" },
-  { sno: 3, division: "Scientific",   name: "Scientific Instruments Catalogue 2024", link: "" },
+  { sno: 1, division: "Lifesciences", name: "IB Chemical Reagents",      link: "" },
+  { sno: 2, division: "Lifesciences", name: "IB Clinical Samples",        link: "" },
+  { sno: 3, division: "Lifesciences", name: "IB Molecular Biology",       link: "" },
+  { sno: 4, division: "Lifesciences", name: "IB Purification Kits",       link: "" },
+  { sno: 5, division: "Lifesciences", name: "IB Human Diagnostics",       link: "" },
+  { sno: 6, division: "Lifesciences", name: "IB Non-Human Diagnostics",   link: "" },
+  { sno: 7, division: "Agriculture",  name: "IB Agriculture Products",    link: "" },
+  { sno: 8, division: "Scientific",   name: "IB Pipettes",                link: "" },
+  { sno: 9, division: "Scientific",   name: "IB Scientific Instruments",  link: "" },
 ];
 
 export default function Catalogues() {
