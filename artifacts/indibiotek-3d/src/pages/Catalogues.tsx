@@ -14,7 +14,7 @@ const CATALOGUES = [
   { sno: 5, division: "Lifesciences", name: "IB Human Diagnostics",       link: "https://drive.google.com/drive/folders/121mDZKg6GrOvNeC_vkXAI8tWHCGd-wE_?usp=sharing" },
   { sno: 6, division: "Lifesciences", name: "IB Non-Human Diagnostics",   link: "https://drive.google.com/drive/folders/1qSZdO03SuFBUBfMNlsXCdB4V9TIOiYnA?usp=sharing" },
   { sno: 7, division: "Agriculture",  name: "IB Agriculture Products",    link: "https://drive.google.com/drive/folders/12vsuPZx6f8vRGuNqlh3UmHy4OVwU8xLD?usp=sharing" },
-  { sno: 8, division: "Scientific",   name: "IB Pipettes",                link: "" },
+  { sno: 8, division: "Scientific",   name: "IB Pipettes",                link: "https://drive.google.com/drive/folders/1anhW_fOkI72n16DA_S-S1OUoeb0tKv3v?usp=sharing" },
   { sno: 9, division: "Scientific",   name: "IB Scientific Instruments",  link: "" },
 ];
 
