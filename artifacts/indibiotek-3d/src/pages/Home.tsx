@@ -152,7 +152,7 @@ export default function Home() {
       {/* ─── HUGE TYPOGRAPHIC STATEMENT — Terminal-style ─── */}
       <section
         className="relative px-5 sm:px-6 md:px-12"
-        style={{ background: BG, paddingTop: "clamp(60px, 10vw, 120px)", paddingBottom: 32 }}
+        style={{ background: BG, paddingTop: "clamp(60px, 10vw, 120px)", paddingBottom: 0 }}
       >
         <div className="max-w-[1180px] mx-auto">
           {/* Prominent brand lockup */}
@@ -224,7 +224,7 @@ export default function Home() {
           backgroundImage: "radial-gradient(ellipse 70% 60% at 80% 20%, rgba(20,181,126,0.10) 0%, transparent 70%), radial-gradient(ellipse 50% 50% at 10% 80%, rgba(200,255,77,0.05) 0%, transparent 60%)",
         }} />
 
-        <div className="max-w-[1180px] mx-auto px-5 sm:px-8 md:px-12" style={{ paddingTop: "clamp(60px,8vw,110px)", paddingBottom: "clamp(60px,8vw,110px)" }}>
+        <div className="max-w-[1180px] mx-auto px-5 sm:px-8 md:px-12" style={{ paddingTop: "clamp(40px,5vw,72px)", paddingBottom: "clamp(60px,8vw,110px)" }}>
 
           {/* eyebrow */}
           <div className="reveal" style={{ marginBottom: "clamp(40px,6vw,72px)" }}>
