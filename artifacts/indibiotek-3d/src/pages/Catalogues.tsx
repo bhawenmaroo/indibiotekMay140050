@@ -45,12 +45,12 @@ export default function Catalogues() {
                     <th
                       key={col}
                       style={{
-                        padding: "18px 20px",
+                        padding: "20px 20px",
                         textAlign: "left",
-                        fontSize: 13,
+                        fontSize: 15,
                         fontFamily: "'Inter', 'Segoe UI', system-ui, sans-serif",
-                        fontWeight: 600,
-                        letterSpacing: "0.04em",
+                        fontWeight: 800,
+                        letterSpacing: "-0.01em",
                         color: "#fff",
                         whiteSpace: "nowrap",
                       }}
