@@ -684,14 +684,14 @@ export default function Home() {
               borderRadius: "50%", pointerEvents: "none",
               background: "radial-gradient(circle, rgba(200,255,77,0.18), transparent 70%)",
             }} />
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end relative">
-              <div className="lg:col-span-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative">
+              <div className="lg:col-span-7">
                 <div
                   style={{
                     fontFamily: "Menlo, monospace",
                     fontSize: 14, letterSpacing: "0.18em",
                     textTransform: "uppercase", color: LIME,
-                    fontWeight: 700, marginBottom: 22,
+                    fontWeight: 700, marginBottom: 16,
                   }}
                 >
                   Newsletter & Gallery
@@ -702,12 +702,13 @@ export default function Home() {
                     fontSize: "clamp(2rem, 4.6vw, 3.4rem)",
                     lineHeight: 1.04, fontWeight: 700, color: "#FFFFFF",
                     letterSpacing: "-0.025em", maxWidth: "18ch",
+                    marginBottom: 0,
                   }}
                 >
                   Stay updated &amp; explore our <span style={{ color: LIME, fontStyle: "italic" }}>journey</span>.
                 </h2>
               </div>
-              <div className="lg:col-span-4 flex flex-col gap-3 lg:items-end">
+              <div className="lg:col-span-5 flex flex-col gap-4 lg:items-end">
                 <p style={{
                   color: "rgba(255,255,255,0.72)", fontSize: "0.95rem", lineHeight: 1.65,
                   fontWeight: 400, maxWidth: 360,
