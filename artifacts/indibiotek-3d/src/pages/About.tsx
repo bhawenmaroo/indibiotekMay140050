@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { PageShell, GlassCard, SectionHeading } from "@/components/PageShell";
 import { Tilt3D } from "@/components/Tilt3D";
 
@@ -279,102 +278,7 @@ function PersonCard({ p }: { p: Person }) {
   );
 }
 
-const GALLERY_IMAGES = [
-  { src: "/gallery/img-01.jpeg", caption: "Team meeting with collaborators" },
-  { src: "/gallery/img-02.jpeg", caption: "Visit to Nadia Krishi Vigyan Kendra" },
-  { src: "/gallery/img-03.jpeg", caption: "E-Yuva Centre, Adamas University" },
-  { src: "/gallery/img-04.jpeg", caption: "RISE Foundation IISER visit" },
-  { src: "/gallery/img-05.jpeg", caption: "E-Yuva Centre inauguration" },
-  { src: "/gallery/img-06.jpeg", caption: "Research & development work" },
-  { src: "/gallery/img-07.jpeg", caption: "Laboratory setup" },
-  { src: "/gallery/img-08.jpeg", caption: "Biotech lab workspace" },
-  { src: "/gallery/img-09.jpeg", caption: "Virtual team meeting" },
-  { src: "/gallery/img-10.jpeg", caption: "BCC&I Webel Tech Incubation" },
-  { src: "/gallery/img-11.jpeg", caption: "ICAR-CIFE Mumbai visit" },
-  { src: "/gallery/img-12.jpeg", caption: "E-Yuva Centre collaboration" },
-  { src: "/gallery/img-13.jpeg", caption: "AccuRa Mini diagnostic device" },
-  { src: "/gallery/img-14.jpeg", caption: "PCR sample preparation" },
-  { src: "/gallery/img-15.jpeg", caption: "Circuit board development" },
-  { src: "/gallery/img-16.jpeg", caption: "Rapid diagnostic kit prototype" },
-  { src: "/gallery/img-17.jpg", caption: "Visit to C-CAMP, Bangalore" },
-  { src: "/gallery/img-18.jpg", caption: "C-CAMP — Centre for Cellular and Molecular Platforms" },
-];
-
-function GalleryModal({ onClose }: { onClose: () => void }) {
-  const ROW1 = GALLERY_IMAGES.slice(0, 8);
-  const ROW2 = GALLERY_IMAGES.slice(8);
-  const Card = ({ item }: { item: { src: string; caption: string } }) => (
-    <div style={{
-      width: 300, flexShrink: 0,
-      background: "rgba(255,255,255,0.06)",
-      border: "1px solid rgba(255,255,255,0.12)",
-      borderRadius: 14,
-      overflow: "hidden",
-    }}>
-      <div style={{ aspectRatio: "4/3", overflow: "hidden" }}>
-        <img src={item.src} alt={item.caption} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-      </div>
-      <div style={{ padding: "10px 14px" }}>
-        <p style={{ fontSize: 12, color: "rgba(255,255,255,0.65)", lineHeight: 1.5, margin: 0, fontStyle: "italic" }}>{item.caption}</p>
-      </div>
-    </div>
-  );
-  return (
-    <div
-      onClick={onClose}
-      style={{
-        position: "fixed", inset: 0, zIndex: 9999,
-        background: "rgba(10,25,16,0.92)",
-        backdropFilter: "blur(10px)",
-        display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-        gap: 20,
-      }}
-    >
-      {/* Close button */}
-      <button
-        onClick={onClose}
-        style={{
-          position: "absolute", top: 20, right: 24,
-          background: "rgba(255,255,255,0.1)", border: "none", borderRadius: 999,
-          color: "#fff", width: 40, height: 40, cursor: "pointer",
-          fontSize: 20, display: "flex", alignItems: "center", justifyContent: "center",
-        }}
-      >✕</button>
-
-      {/* Title */}
-      <div style={{
-        fontFamily: "Menlo, monospace", fontSize: 12, fontWeight: 700,
-        letterSpacing: "0.18em", textTransform: "uppercase", color: "#14B57E",
-        marginBottom: 4,
-      }}>Gallery</div>
-
-      {/* Row 1 — scrolls left */}
-      <div style={{ overflow: "hidden", width: "100%" }} onClick={e => e.stopPropagation()}>
-        <div className="marquee-track" style={{ animationDuration: "36s", alignItems: "stretch" }}>
-          {[0, 1].map(copy => (
-            <div key={copy} style={{ display: "flex", gap: 16, paddingRight: 16 }}>
-              {ROW1.map((item, i) => <Card key={`r1-${copy}-${i}`} item={item} />)}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Row 2 — scrolls right */}
-      <div style={{ overflow: "hidden", width: "100%" }} onClick={e => e.stopPropagation()}>
-        <div className="marquee-track marquee-track-reverse" style={{ animationDuration: "42s", alignItems: "stretch" }}>
-          {[0, 1].map(copy => (
-            <div key={copy} style={{ display: "flex", gap: 16, paddingRight: 16 }}>
-              {ROW2.map((item, i) => <Card key={`r2-${copy}-${i}`} item={item} />)}
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function About() {
-  const [galleryOpen, setGalleryOpen] = useState(false);
   return (
     <PageShell
       eyebrow="About Indibiotek"
@@ -419,8 +323,8 @@ export default function About() {
       {/* ─── EXPLORE GALLERY CTA ─── */}
       <div className="px-5 sm:px-8 md:px-16 pb-10">
         <div className="max-w-6xl mx-auto" style={{ textAlign: "center" }}>
-          <button
-            onClick={() => setGalleryOpen(true)}
+          <a
+            href={import.meta.env.BASE_URL + "gallery"}
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -432,19 +336,18 @@ export default function About() {
               fontFamily: "'Inter', 'Segoe UI', system-ui, sans-serif",
               color: "#fff",
               background: "#0B6A4D",
-              border: "none",
-              cursor: "pointer",
+              textDecoration: "none",
               letterSpacing: "0.01em",
               boxShadow: "0 4px 16px rgba(11,106,77,0.18)",
               transition: "background 0.2s, box-shadow 0.2s",
             }}
             onMouseEnter={e => {
-              (e.currentTarget as HTMLButtonElement).style.background = "#14B57E";
-              (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 6px 22px rgba(20,181,126,0.28)";
+              (e.currentTarget as HTMLAnchorElement).style.background = "#14B57E";
+              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 6px 22px rgba(20,181,126,0.28)";
             }}
             onMouseLeave={e => {
-              (e.currentTarget as HTMLButtonElement).style.background = "#0B6A4D";
-              (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 4px 16px rgba(11,106,77,0.18)";
+              (e.currentTarget as HTMLAnchorElement).style.background = "#0B6A4D";
+              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 4px 16px rgba(11,106,77,0.18)";
             }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -452,10 +355,9 @@ export default function About() {
               <polyline points="21 15 16 10 5 21"/>
             </svg>
             Explore Gallery
-          </button>
+          </a>
         </div>
       </div>
-      {galleryOpen && <GalleryModal onClose={() => setGalleryOpen(false)} />}
 
       {/* ─── CREDENTIALS & RECOGNITION ─── */}
       <section className="px-5 sm:px-8 md:px-16 py-14 sm:py-20">
