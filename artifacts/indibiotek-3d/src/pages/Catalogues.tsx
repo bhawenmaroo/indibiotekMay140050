@@ -24,6 +24,7 @@ export default function Catalogues() {
       eyebrow="Resources"
       title="Catalogues"
       intro="Browse and download our product catalogues across all divisions. Detailed specifications, technical data, and ordering information for every product we offer."
+      heroImage="/catalogues-hero.png"
     >
       <section className="px-5 sm:px-8 md:px-16 py-14 sm:py-20">
         <div className="max-w-5xl mx-auto">
