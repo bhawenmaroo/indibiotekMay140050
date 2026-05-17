@@ -283,7 +283,7 @@ export default function About() {
     <PageShell
       eyebrow="About Indibiotek"
       title="A Biotech company built for BHARAT designated to the world"
-      intro="Indibiotek brings deep scientific capability and operational rigour together to build durable indigenous products across human health, agriculture, and the environment - proudly advancing the Make in India vision."
+      intro="INDIBIOTEK Private Limited is an emerging deep-tech biotechnology startup developing field-deployable rapid diagnostic kits for aquaculture and healthcare. Founded in 2024 on the principles of indigenous research and sustainable technology, the company is dedicated to designing and developing portable, accurate, and easy-to-use testing solutions that work effectively outside of traditional laboratory settings."
       heroImage="https://images.unsplash.com/photo-1581093588401-fbb62a02f120?"
     >
       {/* ─── CREDENTIALS & RECOGNITION ─── */}
