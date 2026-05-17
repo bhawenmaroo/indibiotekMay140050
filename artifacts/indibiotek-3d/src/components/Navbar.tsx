@@ -14,7 +14,6 @@ const DIVISIONS_ITEMS = [
 ];
 
 const NAV_MAIN = [
-  { label: "Home",                href: "/" },
   { label: "About",               href: "/about" },
   { label: "Divisions",           href: null, dropdown: DIVISIONS_ITEMS },
   { label: "R&D",                 href: "/rnd" },
