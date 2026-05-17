@@ -1,9 +1,6 @@
 import { useState } from "react";
-import { PageShell } from "@/components/PageShell";
 import GALLERY_IMAGES from "@/gallery-images";
 
-const ACCENT   = "#0B6A4D";
-const TEXT_DARK = "#0E2A1C";
 const TEXT_BODY = "rgba(14,42,28,0.65)";
 
 export default function Gallery() {
@@ -13,44 +10,58 @@ export default function Gallery() {
   const next = () => setLightbox(i => (i !== null && i < GALLERY_IMAGES.length - 1 ? i + 1 : 0));
 
   return (
-    <PageShell
-      badge="Gallery"
-      title="Our Journey in Pictures"
-      intro="A visual record of Indibiotek's work — from the lab bench to the field."
-    >
-      {GALLERY_IMAGES.length === 0 ? (
-        <div
-          style={{
-            minHeight: 320,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 16,
-            padding: "60px 0",
+    <div className="min-h-screen" style={{ background: "#F4F8F5" }}>
+      {/* Compact header */}
+      <div
+        className="px-5 sm:px-8 md:px-16"
+        style={{
+          paddingTop: "clamp(88px, 10vw, 120px)",
+          paddingBottom: 40,
+          background: "linear-gradient(180deg, #ECF3EE 0%, #F4F8F5 100%)",
+        }}
+      >
+        <div className="max-w-6xl mx-auto">
+          <div style={{
+            fontFamily: "Menlo, monospace", fontSize: 13, fontWeight: 700,
+            letterSpacing: "0.18em", textTransform: "uppercase",
+            color: "#0B6A4D", marginBottom: 14,
+            display: "flex", alignItems: "center", gap: 10,
+          }}>
+            <span style={{ display: "inline-block", width: 32, height: 2, background: "#0B6A4D", borderRadius: 2 }} />
+            Gallery
+          </div>
+          <h1 style={{
+            fontFamily: "'Inter', 'Segoe UI', system-ui, sans-serif",
+            fontSize: "clamp(2rem, 4vw, 3rem)",
+            fontWeight: 800,
+            color: "#0E2A1C",
+            lineHeight: 1.15,
+            letterSpacing: "-0.02em",
+            margin: 0,
+            marginBottom: 12,
+          }}>
+            Our Journey in Pictures
+          </h1>
+          <p style={{
+            fontSize: "1rem",
             color: TEXT_BODY,
-            textAlign: "center",
-          }}
-        >
-          <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.35 }}>
-            <rect x="3" y="3" width="18" height="18" rx="2"/>
-            <circle cx="8.5" cy="8.5" r="1.5"/>
-            <polyline points="21 15 16 10 5 21"/>
-          </svg>
-          <p style={{ fontSize: "1rem", fontWeight: 500, maxWidth: 360, color: TEXT_BODY }}>
-            Photos will appear here once uploaded.
-          </p>
-          <p style={{ fontSize: "0.85rem", color: TEXT_BODY, maxWidth: 400, lineHeight: 1.6 }}>
-            Add images to <code style={{ background: "rgba(14,42,28,0.07)", padding: "2px 6px", borderRadius: 4, fontSize: "0.82rem" }}>public/gallery/</code> and register them in <code style={{ background: "rgba(14,42,28,0.07)", padding: "2px 6px", borderRadius: 4, fontSize: "0.82rem" }}>src/gallery-images.ts</code>.
+            lineHeight: 1.65,
+            margin: 0,
+            maxWidth: 560,
+          }}>
+            A visual record of Indibiotek's work — from the lab bench to the field.
           </p>
         </div>
-      ) : (
+      </div>
+
+      {/* Grid */}
+      <div className="px-5 sm:px-8 md:px-16 pb-20">
         <div
+          className="max-w-6xl mx-auto"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
             gap: 16,
-            paddingBottom: 40,
           }}
         >
           {GALLERY_IMAGES.map((img, i) => (
@@ -63,7 +74,7 @@ export default function Gallery() {
                 cursor: "pointer",
                 border: "1px solid rgba(14,42,28,0.08)",
                 boxShadow: "0 4px 16px rgba(14,42,28,0.07)",
-                background: "rgba(14,42,28,0.03)",
+                background: "#fff",
                 transition: "transform 0.2s, box-shadow 0.2s",
               }}
               onMouseEnter={e => {
@@ -78,28 +89,17 @@ export default function Gallery() {
               <img
                 src={img.src}
                 alt={img.caption ?? `Gallery image ${i + 1}`}
-                style={{
-                  width: "100%",
-                  aspectRatio: "4 / 3",
-                  objectFit: "cover",
-                  display: "block",
-                }}
+                style={{ width: "100%", aspectRatio: "4 / 3", objectFit: "cover", display: "block" }}
               />
               {img.caption && (
-                <div style={{
-                  padding: "10px 14px",
-                  fontSize: 13,
-                  color: TEXT_BODY,
-                  fontWeight: 500,
-                  lineHeight: 1.5,
-                }}>
+                <div style={{ padding: "10px 14px", fontSize: 13, color: TEXT_BODY, fontWeight: 500, lineHeight: 1.5 }}>
                   {img.caption}
                 </div>
               )}
             </div>
           ))}
         </div>
-      )}
+      </div>
 
       {/* Lightbox */}
       {lightbox !== null && (
@@ -138,10 +138,7 @@ export default function Gallery() {
               }}
             />
             {GALLERY_IMAGES[lightbox].caption && (
-              <p style={{
-                marginTop: 14, color: "rgba(255,255,255,0.72)",
-                fontSize: 14, fontWeight: 500,
-              }}>
+              <p style={{ marginTop: 14, color: "rgba(255,255,255,0.72)", fontSize: 14, fontWeight: 500 }}>
                 {GALLERY_IMAGES[lightbox].caption}
               </p>
             )}
@@ -173,6 +170,6 @@ export default function Gallery() {
           >×</button>
         </div>
       )}
-    </PageShell>
+    </div>
   );
 }

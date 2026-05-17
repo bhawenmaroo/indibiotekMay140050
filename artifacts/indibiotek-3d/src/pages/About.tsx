@@ -320,45 +320,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* ─── EXPLORE GALLERY CTA ─── */}
-      <div className="px-5 sm:px-8 md:px-16 pb-10">
-        <div className="max-w-6xl mx-auto" style={{ textAlign: "center" }}>
-          <a
-            href={import.meta.env.BASE_URL + "gallery"}
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              padding: "12px 28px",
-              borderRadius: 999,
-              fontSize: 14,
-              fontWeight: 700,
-              fontFamily: "'Inter', 'Segoe UI', system-ui, sans-serif",
-              color: "#fff",
-              background: "#0B6A4D",
-              textDecoration: "none",
-              letterSpacing: "0.01em",
-              boxShadow: "0 4px 16px rgba(11,106,77,0.18)",
-              transition: "background 0.2s, box-shadow 0.2s",
-            }}
-            onMouseEnter={e => {
-              (e.currentTarget as HTMLAnchorElement).style.background = "#14B57E";
-              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 6px 22px rgba(20,181,126,0.28)";
-            }}
-            onMouseLeave={e => {
-              (e.currentTarget as HTMLAnchorElement).style.background = "#0B6A4D";
-              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 4px 16px rgba(11,106,77,0.18)";
-            }}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
-              <polyline points="21 15 16 10 5 21"/>
-            </svg>
-            Explore Gallery
-          </a>
-        </div>
-      </div>
-
       {/* ─── CREDENTIALS & RECOGNITION ─── */}
       <section className="px-5 sm:px-8 md:px-16 py-14 sm:py-20">
         <div
