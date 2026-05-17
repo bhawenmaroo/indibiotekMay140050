@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Tilt3D } from "@/components/Tilt3D";
@@ -41,6 +41,7 @@ const BG_ALT       = "#ECF3EE";
 const DARK_BG      = "#0E1C14";
 
 export default function Home() {
+  const [, navigate] = useLocation();
   const root = useRef<HTMLDivElement>(null);
   const heroBg = useParallax<HTMLDivElement>(0.20);
   const labParallax = useParallax<HTMLDivElement>(0.10);
@@ -730,20 +731,20 @@ export default function Home() {
                   >
                     NEWSLETTER — COMING SOON
                   </span>
-                  <Link href="/gallery">
-                    <span
-                      className="cursor-pointer inline-flex items-center"
-                      style={{
-                        height: 48, padding: "0 22px", borderRadius: 10,
-                        background: LIME, color: DARK_BG,
-                        fontWeight: 700, fontSize: 12.5, letterSpacing: "0.10em",
-                        fontFamily: "Menlo, monospace",
-                        boxShadow: "0 8px 24px rgba(200,255,77,0.30)",
-                      }}
-                    >
-                      EXPLORE GALLERY →
-                    </span>
-                  </Link>
+                  <button
+                    onClick={() => navigate("/gallery")}
+                    style={{
+                      height: 48, padding: "0 22px", borderRadius: 10,
+                      background: LIME, color: DARK_BG,
+                      fontWeight: 700, fontSize: 12.5, letterSpacing: "0.10em",
+                      fontFamily: "Menlo, monospace",
+                      boxShadow: "0 8px 24px rgba(200,255,77,0.30)",
+                      border: "none", cursor: "pointer",
+                      display: "inline-flex", alignItems: "center",
+                    }}
+                  >
+                    EXPLORE GALLERY →
+                  </button>
                 </div>
               </div>
             </div>
