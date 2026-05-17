@@ -57,8 +57,13 @@ export function Navbar() {
         setDivOpen(false);
       }
     };
+    const onScroll = () => setDivOpen(false);
     document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      document.removeEventListener("mousedown", handler);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, [divOpen]);
 
   const isDivisionActive = DIVISIONS_ITEMS.some(d => location.startsWith(d.href));
@@ -142,6 +147,7 @@ export function Navbar() {
 
                   {divOpen && (
                     <div
+                      className="dropdown-panel"
                       style={{
                         position: "absolute",
                         top: "calc(100% + 8px)",
