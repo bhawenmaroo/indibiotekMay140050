@@ -757,7 +757,7 @@ export default function Home() {
 
       {/* ─── FINAL CTA — dark monolith with lime button ─── */}
       <section className="relative px-5 sm:px-6 md:px-12 pt-14 sm:pt-20 pb-8" style={{ background: BG }}>
-        <Tilt3D className="max-w-[1180px] mx-auto reveal relative" max={3} scale={1.005}>
+        <div className="max-w-[1180px] mx-auto reveal relative">
           <div
             className="relative overflow-hidden"
             style={{
@@ -838,7 +838,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </Tilt3D>
+        </div>
       </section>
     </div>
   );
