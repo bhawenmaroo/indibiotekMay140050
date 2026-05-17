@@ -101,73 +101,83 @@ export default function Gallery() {
         </div>
       </div>
 
-      {/* Lightbox */}
+      {/* Expanded image overlay */}
       {lightbox !== null && (
         <div
           onClick={() => setLightbox(null)}
           style={{
             position: "fixed", inset: 0, zIndex: 999,
-            background: "rgba(10,20,14,0.92)",
+            background: "rgba(14,28,20,0.55)",
             display: "flex", alignItems: "center", justifyContent: "center",
-            padding: 20,
-            backdropFilter: "blur(8px)",
+            padding: "24px 48px",
+            backdropFilter: "blur(6px)",
           }}
         >
-          <button
-            onClick={e => { e.stopPropagation(); prev(); }}
-            style={{
-              position: "absolute", left: 20, top: "50%", transform: "translateY(-50%)",
-              width: 44, height: 44, borderRadius: "50%",
-              background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.18)",
-              color: "#fff", fontSize: 20, cursor: "pointer", display: "flex",
-              alignItems: "center", justifyContent: "center",
-            }}
-          >‹</button>
-
           <div
             onClick={e => e.stopPropagation()}
-            style={{ maxWidth: "min(90vw, 960px)", width: "100%", textAlign: "center" }}
+            style={{
+              background: "#fff",
+              borderRadius: 20,
+              overflow: "hidden",
+              boxShadow: "0 32px 80px rgba(0,0,0,0.28)",
+              maxWidth: "min(72vw, 860px)",
+              width: "100%",
+              position: "relative",
+            }}
           >
+            {/* Close */}
+            <button
+              onClick={() => setLightbox(null)}
+              style={{
+                position: "absolute", top: 12, right: 12, zIndex: 10,
+                width: 34, height: 34, borderRadius: "50%",
+                background: "rgba(14,28,20,0.55)", border: "none",
+                color: "#fff", fontSize: 16, cursor: "pointer",
+                display: "flex", alignItems: "center", justifyContent: "center",
+              }}
+            >×</button>
+
+            {/* Prev */}
+            <button
+              onClick={e => { e.stopPropagation(); prev(); }}
+              style={{
+                position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", zIndex: 10,
+                width: 38, height: 38, borderRadius: "50%",
+                background: "rgba(14,28,20,0.5)", border: "none",
+                color: "#fff", fontSize: 22, cursor: "pointer",
+                display: "flex", alignItems: "center", justifyContent: "center",
+              }}
+            >‹</button>
+
             <img
               src={GALLERY_IMAGES[lightbox].src}
               alt={GALLERY_IMAGES[lightbox].caption ?? "Gallery image"}
-              style={{
-                maxWidth: "100%", maxHeight: "80vh",
-                borderRadius: 16, objectFit: "contain",
-                boxShadow: "0 24px 60px rgba(0,0,0,0.5)",
-              }}
+              style={{ width: "100%", maxHeight: "62vh", objectFit: "cover", display: "block" }}
             />
-            {GALLERY_IMAGES[lightbox].caption && (
-              <p style={{ marginTop: 14, color: "rgba(255,255,255,0.72)", fontSize: 14, fontWeight: 500 }}>
-                {GALLERY_IMAGES[lightbox].caption}
-              </p>
+
+            {/* Next */}
+            <button
+              onClick={e => { e.stopPropagation(); next(); }}
+              style={{
+                position: "absolute", right: 12, top: "50%", transform: "translateY(-50%)", zIndex: 10,
+                width: 38, height: 38, borderRadius: "50%",
+                background: "rgba(14,28,20,0.5)", border: "none",
+                color: "#fff", fontSize: 22, cursor: "pointer",
+                display: "flex", alignItems: "center", justifyContent: "center",
+              }}
+            >›</button>
+
+            {(GALLERY_IMAGES[lightbox].caption) && (
+              <div style={{ padding: "14px 20px", borderTop: "1px solid rgba(14,42,28,0.08)" }}>
+                <p style={{ margin: 0, fontSize: 13, color: TEXT_BODY, fontWeight: 500 }}>
+                  {GALLERY_IMAGES[lightbox].caption}
+                </p>
+                <p style={{ margin: "4px 0 0", fontSize: 11, color: "rgba(14,42,28,0.35)" }}>
+                  {lightbox + 1} / {GALLERY_IMAGES.length}
+                </p>
+              </div>
             )}
-            <p style={{ color: "rgba(255,255,255,0.35)", fontSize: 12, marginTop: 8 }}>
-              {lightbox + 1} / {GALLERY_IMAGES.length}
-            </p>
           </div>
-
-          <button
-            onClick={e => { e.stopPropagation(); next(); }}
-            style={{
-              position: "absolute", right: 20, top: "50%", transform: "translateY(-50%)",
-              width: 44, height: 44, borderRadius: "50%",
-              background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.18)",
-              color: "#fff", fontSize: 20, cursor: "pointer", display: "flex",
-              alignItems: "center", justifyContent: "center",
-            }}
-          >›</button>
-
-          <button
-            onClick={() => setLightbox(null)}
-            style={{
-              position: "absolute", top: 20, right: 20,
-              width: 38, height: 38, borderRadius: "50%",
-              background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.18)",
-              color: "#fff", fontSize: 18, cursor: "pointer", display: "flex",
-              alignItems: "center", justifyContent: "center",
-            }}
-          >×</button>
         </div>
       )}
     </div>
