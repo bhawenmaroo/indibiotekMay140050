@@ -17,10 +17,9 @@ export function Footer() {
         {/* Company name */}
         <div
           style={{
-            fontFamily: "Menlo, monospace",
-            fontSize: 17,
-            letterSpacing: "0.22em",
-            textTransform: "uppercase",
+            fontFamily: "'Inter', 'Segoe UI', system-ui, sans-serif",
+            fontSize: 22,
+            letterSpacing: "-0.01em",
             fontWeight: 800,
             color: TEXT_DARK,
             marginBottom: 14,
