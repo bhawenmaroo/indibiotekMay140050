@@ -286,8 +286,42 @@ export default function About() {
       intro="INDIBIOTEK Private Limited is an emerging deep-tech biotechnology startup developing field-deployable rapid diagnostic kits for aquaculture and healthcare. Founded in 2024 on the principles of indigenous research and sustainable technology, the company is dedicated to designing and developing portable, accurate, and easy-to-use testing solutions that work effectively outside of traditional laboratory settings."
       heroImage="https://images.unsplash.com/photo-1581093588401-fbb62a02f120?"
     >
+      {/* ─── DIVISIONS ─── */}
+      <section className="px-5 sm:px-8 md:px-16 pt-10 pb-14">
+        <div className="max-w-6xl mx-auto">
+          <div style={{
+            fontFamily: "Menlo, monospace", fontSize: 13, fontWeight: 700,
+            letterSpacing: "0.18em", textTransform: "uppercase",
+            color: "#0B6A4D", marginBottom: 20,
+          }}>Divisions</div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {[
+              { name: "Lifesciences Division", desc: "Human, animal, and environmental diagnostics and reagents." },
+              { name: "Agri Division",         desc: "Sustainable agriculture inputs and organic food systems." },
+              { name: "Scientific Division",   desc: "Laboratory equipment, consumables, and waste management solutions." },
+            ].map(d => (
+              <div key={d.name} style={{
+                borderLeft: "3px solid #14B57E",
+                paddingLeft: 20,
+              }}>
+                <div style={{
+                  fontFamily: "Menlo, monospace", fontSize: 11, fontWeight: 700,
+                  letterSpacing: "0.12em", textTransform: "uppercase",
+                  color: "#0B6A4D", marginBottom: 8,
+                }}>{d.name}</div>
+                <p style={{
+                  fontSize: "0.92rem", fontWeight: 400,
+                  color: "rgba(14,42,28,0.70)", lineHeight: 1.65,
+                  margin: 0, textAlign: "justify",
+                }}>{d.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ─── EXPLORE GALLERY CTA ─── */}
-      <div className="px-5 sm:px-8 md:px-16 pt-8 pb-2">
+      <div className="px-5 sm:px-8 md:px-16 pb-10">
         <div className="max-w-6xl mx-auto">
           <a
             href={import.meta.env.BASE_URL + "gallery"}
@@ -324,40 +358,6 @@ export default function About() {
           </a>
         </div>
       </div>
-
-      {/* ─── DIVISIONS ─── */}
-      <section className="px-5 sm:px-8 md:px-16 pt-10 pb-14">
-        <div className="max-w-6xl mx-auto">
-          <div style={{
-            fontFamily: "Menlo, monospace", fontSize: 13, fontWeight: 700,
-            letterSpacing: "0.18em", textTransform: "uppercase",
-            color: "#0B6A4D", marginBottom: 20,
-          }}>Divisions</div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {[
-              { name: "Lifesciences Division", desc: "Human, animal, and environmental diagnostics and reagents." },
-              { name: "Agri Division",         desc: "Sustainable agriculture inputs and organic food systems." },
-              { name: "Scientific Division",   desc: "Laboratory equipment, consumables, and waste management solutions." },
-            ].map(d => (
-              <div key={d.name} style={{
-                borderLeft: "3px solid #14B57E",
-                paddingLeft: 20,
-              }}>
-                <div style={{
-                  fontFamily: "Menlo, monospace", fontSize: 11, fontWeight: 700,
-                  letterSpacing: "0.12em", textTransform: "uppercase",
-                  color: "#0B6A4D", marginBottom: 8,
-                }}>{d.name}</div>
-                <p style={{
-                  fontSize: "0.92rem", fontWeight: 400,
-                  color: "rgba(14,42,28,0.70)", lineHeight: 1.65,
-                  margin: 0, textAlign: "justify",
-                }}>{d.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ─── CREDENTIALS & RECOGNITION ─── */}
       <section className="px-5 sm:px-8 md:px-16 py-14 sm:py-20">
