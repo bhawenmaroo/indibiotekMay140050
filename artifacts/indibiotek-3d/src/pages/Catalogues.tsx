@@ -7,7 +7,7 @@ const TEXT_BODY = "rgba(14,42,28,0.72)";
 const BG = "#F4F8F5";
 
 const CATALOGUES = [
-  { sno: 1, division: "Lifesciences", name: "IB Chemical Reagents",      link: "" },
+  { sno: 1, division: "Lifesciences", name: "IB Chemical Reagents",      link: "https://drive.google.com/drive/folders/1IRcKCD4UCwcTx4ramVfYv2r6qB7R5N-g?usp=sharing" },
   { sno: 2, division: "Lifesciences", name: "IB Clinical Samples",        link: "" },
   { sno: 3, division: "Lifesciences", name: "IB Molecular Biology",       link: "" },
   { sno: 4, division: "Lifesciences", name: "IB Purification Kits",       link: "" },
