@@ -359,77 +359,68 @@ export default function About() {
         </div>
       </div>
 
-      {/* ─── PHOTO GALLERY GRID ─── */}
-      <section className="px-5 sm:px-8 md:px-16 pt-6 pb-14">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-            {[
-              { src: "/gallery/img-01.jpeg", caption: "Team meeting with collaborators" },
-              { src: "/gallery/img-02.jpeg", caption: "Visit to Nadia Krishi Vigyan Kendra" },
-              { src: "/gallery/img-03.jpeg", caption: "E-Yuva Centre, Adamas University" },
-              { src: "/gallery/img-04.jpeg", caption: "RISE Foundation IISER visit" },
-              { src: "/gallery/img-05.jpeg", caption: "E-Yuva Centre inauguration" },
-              { src: "/gallery/img-06.jpeg", caption: "Research & development work" },
-              { src: "/gallery/img-07.jpeg", caption: "Laboratory setup" },
-              { src: "/gallery/img-08.jpeg", caption: "Biotech lab workspace" },
-              { src: "/gallery/img-09.jpeg", caption: "Virtual team meeting" },
-              { src: "/gallery/img-10.jpeg", caption: "BCC&I Webel Tech Incubation" },
-              { src: "/gallery/img-11.jpeg", caption: "ICAR-CIFE Mumbai visit" },
-              { src: "/gallery/img-12.jpeg", caption: "E-Yuva Centre collaboration" },
-              { src: "/gallery/img-13.jpeg", caption: "AccuRa Mini diagnostic device" },
-              { src: "/gallery/img-14.jpeg", caption: "PCR sample preparation" },
-              { src: "/gallery/img-15.jpeg", caption: "Circuit board development" },
-              { src: "/gallery/img-16.jpeg", caption: "Rapid diagnostic kit prototype" },
-            ].map((item, i) => (
-              <div
-                key={i}
-                style={{
-                  background: "#fff",
-                  border: "1px solid rgba(14,42,28,0.08)",
-                  borderRadius: 14,
-                  overflow: "hidden",
-                  boxShadow: "0 2px 12px rgba(14,42,28,0.06)",
-                  transition: "box-shadow 0.2s, transform 0.2s",
-                }}
-                onMouseEnter={e => {
-                  (e.currentTarget as HTMLDivElement).style.boxShadow = "0 8px 28px rgba(14,42,28,0.13)";
-                  (e.currentTarget as HTMLDivElement).style.transform = "translateY(-2px)";
-                }}
-                onMouseLeave={e => {
-                  (e.currentTarget as HTMLDivElement).style.boxShadow = "0 2px 12px rgba(14,42,28,0.06)";
-                  (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
-                }}
-              >
-                <div style={{ aspectRatio: "4/3", overflow: "hidden" }}>
-                  <img
-                    src={item.src}
-                    alt={item.caption}
-                    style={{
-                      width: "100%", height: "100%",
-                      objectFit: "cover",
-                      display: "block",
-                      transition: "transform 0.4s",
-                    }}
-                    onMouseEnter={e => ((e.currentTarget as HTMLImageElement).style.transform = "scale(1.05)")}
-                    onMouseLeave={e => ((e.currentTarget as HTMLImageElement).style.transform = "scale(1)")}
-                  />
-                </div>
-                <div style={{ padding: "12px 14px" }}>
-                  <p style={{
-                    fontSize: 13,
-                    color: "rgba(14,42,28,0.65)",
-                    lineHeight: 1.5,
-                    margin: 0,
-                    fontStyle: "italic",
-                  }}>
-                    {item.caption}
-                  </p>
-                </div>
-              </div>
-            ))}
+      {/* ─── PHOTO GALLERY SCROLLING ─── */}
+      {(() => {
+        const ROW1 = [
+          { src: "/gallery/img-01.jpeg", caption: "Team meeting with collaborators" },
+          { src: "/gallery/img-02.jpeg", caption: "Visit to Nadia Krishi Vigyan Kendra" },
+          { src: "/gallery/img-03.jpeg", caption: "E-Yuva Centre, Adamas University" },
+          { src: "/gallery/img-04.jpeg", caption: "RISE Foundation IISER visit" },
+          { src: "/gallery/img-05.jpeg", caption: "E-Yuva Centre inauguration" },
+          { src: "/gallery/img-06.jpeg", caption: "Research & development work" },
+          { src: "/gallery/img-07.jpeg", caption: "Laboratory setup" },
+          { src: "/gallery/img-08.jpeg", caption: "Biotech lab workspace" },
+        ];
+        const ROW2 = [
+          { src: "/gallery/img-09.jpeg", caption: "Virtual team meeting" },
+          { src: "/gallery/img-10.jpeg", caption: "BCC&I Webel Tech Incubation" },
+          { src: "/gallery/img-11.jpeg", caption: "ICAR-CIFE Mumbai visit" },
+          { src: "/gallery/img-12.jpeg", caption: "E-Yuva Centre collaboration" },
+          { src: "/gallery/img-13.jpeg", caption: "AccuRa Mini diagnostic device" },
+          { src: "/gallery/img-14.jpeg", caption: "PCR sample preparation" },
+          { src: "/gallery/img-15.jpeg", caption: "Circuit board development" },
+          { src: "/gallery/img-16.jpeg", caption: "Rapid diagnostic kit prototype" },
+        ];
+        const GalleryCard = ({ item }: { item: { src: string; caption: string } }) => (
+          <div style={{
+            width: 280, flexShrink: 0,
+            background: "#fff",
+            border: "1px solid rgba(14,42,28,0.08)",
+            borderRadius: 14,
+            overflow: "hidden",
+            boxShadow: "0 2px 12px rgba(14,42,28,0.06)",
+          }}>
+            <div style={{ aspectRatio: "4/3", overflow: "hidden" }}>
+              <img src={item.src} alt={item.caption} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+            </div>
+            <div style={{ padding: "10px 13px" }}>
+              <p style={{ fontSize: 12, color: "rgba(14,42,28,0.6)", lineHeight: 1.5, margin: 0, fontStyle: "italic" }}>{item.caption}</p>
+            </div>
           </div>
-        </div>
-      </section>
+        );
+        return (
+          <section style={{ paddingTop: 8, paddingBottom: 56, overflow: "hidden" }}>
+            <div style={{ overflow: "hidden", width: "100%", marginBottom: 16 }}>
+              <div className="marquee-track" style={{ animationDuration: "36s", alignItems: "stretch" }}>
+                {[0, 1].map((copy) => (
+                  <div key={copy} style={{ display: "flex", gap: 16, paddingRight: 16 }}>
+                    {ROW1.map((item, i) => <GalleryCard key={`${copy}-${i}`} item={item} />)}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div style={{ overflow: "hidden", width: "100%" }}>
+              <div className="marquee-track marquee-track-reverse" style={{ animationDuration: "42s", alignItems: "stretch" }}>
+                {[0, 1].map((copy) => (
+                  <div key={copy} style={{ display: "flex", gap: 16, paddingRight: 16 }}>
+                    {ROW2.map((item, i) => <GalleryCard key={`${copy}-${i}`} item={item} />)}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      })()}
 
       {/* ─── CREDENTIALS & RECOGNITION ─── */}
       <section className="px-5 sm:px-8 md:px-16 py-14 sm:py-20">
