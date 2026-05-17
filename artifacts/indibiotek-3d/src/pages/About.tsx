@@ -115,7 +115,7 @@ function LeaderCard({ p }: { p: Person }) {
     >
       {/* Circular photo — no box */}
       <div style={{
-        width: 160, height: 160,
+        width: 210, height: 210,
         borderRadius: "50%",
         overflow: "hidden",
         border: `3px solid rgba(11,106,77,0.22)`,
