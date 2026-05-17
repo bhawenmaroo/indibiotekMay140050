@@ -146,7 +146,7 @@ export function Navbar() {
 
                   {divOpen && (
                     <div
-                      className="dropdown-panel"
+                      className="nav-dropdown-panel"
                       style={{
                         position: "absolute",
                         top: "calc(100% + 8px)",
@@ -342,7 +342,7 @@ export function Navbar() {
       {/* Mobile menu panel */}
       {open && (
         <div
-          className="md:hidden mt-2 rounded-2xl"
+          className="md:hidden mt-2 rounded-2xl nav-mobile-menu"
           style={{
             background: "rgba(255,255,255,0.96)",
             backdropFilter: "blur(22px)",
@@ -377,10 +377,12 @@ export function Navbar() {
                       <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
-                  {mobileDiv && DIVISIONS_ITEMS.map(d => (
+                  {mobileDiv && DIVISIONS_ITEMS.map((d, i) => (
                     <Link key={d.href} href={d.href}>
                       <div
+                        className="nav-mobile-sub"
                         style={{
+                          animationDelay: `${i * 0.04}s`,
                           padding: "10px 16px 10px 28px",
                           fontSize: 13.5,
                           color: location.startsWith(d.href) ? TEXT_ACT : TEXT_BODY,
