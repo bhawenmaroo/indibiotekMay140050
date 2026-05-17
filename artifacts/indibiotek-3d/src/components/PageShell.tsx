@@ -116,6 +116,7 @@ export function PageShell({
                 lineHeight: 1.65,
                 fontWeight: 400,
                 maxWidth: 640,
+                textAlign: "justify",
               }}
             >
               {intro}
