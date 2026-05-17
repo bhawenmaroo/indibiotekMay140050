@@ -1,4 +1,5 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import GALLERY_IMAGES from "@/gallery-images";
 import { Link } from "wouter";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -45,6 +46,9 @@ export default function Home() {
   const heroBg = useParallax<HTMLDivElement>(0.20);
   const labParallax = useParallax<HTMLDivElement>(0.10);
   const fieldParallax = useParallax<HTMLDivElement>(0.10);
+  const [lightbox, setLightbox] = useState<number | null>(null);
+  const prevImg = () => setLightbox(i => (i !== null && i > 0 ? i - 1 : GALLERY_IMAGES.length - 1));
+  const nextImg = () => setLightbox(i => (i !== null && i < GALLERY_IMAGES.length - 1 ? i + 1 : 0));
 
   useEffect(() => {
     if (!root.current) return;
@@ -871,26 +875,108 @@ export default function Home() {
         <div className="marquee-track" style={{ animationDuration: "38s", alignItems: "stretch" }}>
           {[0, 1].map(copy => (
             <div key={copy} style={{ display: "flex", gap: 12, paddingRight: 12 }}>
-              {[
-                "/gallery/img-01.jpeg", "/gallery/img-02.jpeg", "/gallery/img-03.jpeg",
-                "/gallery/img-04.jpeg", "/gallery/img-05.jpeg", "/gallery/img-06.jpeg",
-                "/gallery/img-07.jpeg", "/gallery/img-08.jpeg", "/gallery/img-09.jpeg",
-                "/gallery/img-10.jpeg", "/gallery/img-11.jpeg", "/gallery/img-12.jpeg",
-                "/gallery/img-13.jpeg", "/gallery/img-14.jpeg", "/gallery/img-15.jpeg",
-                "/gallery/img-16.jpeg", "/gallery/img-17.jpg",  "/gallery/img-18.jpg",
-              ].map((src, i) => (
-                <div key={`${copy}-${i}`} style={{
-                  width: 200, height: 140, flexShrink: 0,
-                  borderRadius: 12, overflow: "hidden",
-                  boxShadow: "0 2px 10px rgba(14,42,28,0.09)",
-                }}>
-                  <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+              {GALLERY_IMAGES.map((img, i) => (
+                <div
+                  key={`${copy}-${i}`}
+                  onClick={() => setLightbox(i)}
+                  style={{
+                    width: 200, height: 140, flexShrink: 0,
+                    borderRadius: 12, overflow: "hidden",
+                    boxShadow: "0 2px 10px rgba(14,42,28,0.09)",
+                    cursor: "zoom-in",
+                    transition: "transform 0.25s ease, box-shadow 0.25s ease",
+                  }}
+                  onMouseEnter={e => {
+                    (e.currentTarget as HTMLDivElement).style.transform = "scale(1.04)";
+                    (e.currentTarget as HTMLDivElement).style.boxShadow = "0 8px 28px rgba(14,42,28,0.18)";
+                  }}
+                  onMouseLeave={e => {
+                    (e.currentTarget as HTMLDivElement).style.transform = "scale(1)";
+                    (e.currentTarget as HTMLDivElement).style.boxShadow = "0 2px 10px rgba(14,42,28,0.09)";
+                  }}
+                >
+                  <img src={img.src} alt={img.caption ?? ""} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                 </div>
               ))}
             </div>
           ))}
         </div>
       </div>
+
+      {/* Lightbox */}
+      {lightbox !== null && (
+        <div
+          className="gallery-backdrop"
+          onClick={() => setLightbox(null)}
+          style={{
+            position: "fixed", inset: 0, zIndex: 999,
+            background: "rgba(14,28,20,0.55)",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            padding: "24px 48px",
+            backdropFilter: "blur(6px)",
+          }}
+        >
+          <div
+            className="gallery-card"
+            onClick={e => e.stopPropagation()}
+            style={{
+              background: "#fff",
+              borderRadius: 20,
+              overflow: "hidden",
+              boxShadow: "0 32px 80px rgba(0,0,0,0.28)",
+              maxWidth: "min(72vw, 860px)",
+              width: "100%",
+              position: "relative",
+            }}
+          >
+            <button
+              onClick={() => setLightbox(null)}
+              style={{
+                position: "absolute", top: 12, right: 12, zIndex: 10,
+                width: 34, height: 34, borderRadius: "50%",
+                background: "rgba(14,28,20,0.55)", border: "none",
+                color: "#fff", fontSize: 16, cursor: "pointer",
+                display: "flex", alignItems: "center", justifyContent: "center",
+              }}
+            >×</button>
+            <button
+              onClick={e => { e.stopPropagation(); prevImg(); }}
+              style={{
+                position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", zIndex: 10,
+                width: 38, height: 38, borderRadius: "50%",
+                background: "rgba(14,28,20,0.5)", border: "none",
+                color: "#fff", fontSize: 22, cursor: "pointer",
+                display: "flex", alignItems: "center", justifyContent: "center",
+              }}
+            >‹</button>
+            <img
+              src={GALLERY_IMAGES[lightbox].src}
+              alt={GALLERY_IMAGES[lightbox].caption ?? "Gallery image"}
+              style={{ width: "100%", maxHeight: "62vh", objectFit: "cover", display: "block" }}
+            />
+            <button
+              onClick={e => { e.stopPropagation(); nextImg(); }}
+              style={{
+                position: "absolute", right: 12, top: "50%", transform: "translateY(-50%)", zIndex: 10,
+                width: 38, height: 38, borderRadius: "50%",
+                background: "rgba(14,28,20,0.5)", border: "none",
+                color: "#fff", fontSize: 22, cursor: "pointer",
+                display: "flex", alignItems: "center", justifyContent: "center",
+              }}
+            >›</button>
+            {GALLERY_IMAGES[lightbox].caption && (
+              <div style={{ padding: "14px 20px", borderTop: "1px solid rgba(14,42,28,0.08)" }}>
+                <p style={{ margin: 0, fontSize: 13, color: "rgba(14,42,28,0.65)", fontWeight: 500 }}>
+                  {GALLERY_IMAGES[lightbox].caption}
+                </p>
+                <p style={{ margin: "4px 0 0", fontSize: 11, color: "rgba(14,42,28,0.35)" }}>
+                  {lightbox + 1} / {GALLERY_IMAGES.length}
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
