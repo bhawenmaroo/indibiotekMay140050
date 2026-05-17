@@ -220,57 +220,58 @@ export default function Home() {
       <section className="relative px-5 sm:px-6 md:px-12" style={{ background: BG, paddingBottom: "clamp(56px,8vw,100px)" }}>
         <div className="max-w-[1180px] mx-auto">
 
-          {/* Vision — pull-quote continuation of the heading above */}
-          <div className="reveal" style={{
-            borderLeft: `3px solid ${ACCENT_BRIGHT}`,
-            paddingLeft: "clamp(20px,3vw,40px)",
-            marginBottom: "clamp(40px,5vw,64px)",
-          }}>
-            <div style={{
-              fontFamily: "Menlo, monospace", fontSize: 14, fontWeight: 700,
-              letterSpacing: "0.18em", textTransform: "uppercase",
-              color: ACCENT, marginBottom: 14,
-            }}>Vision</div>
-            <p style={{
-              fontSize: "clamp(0.9rem, 1.2vw, 1rem)",
-              fontWeight: 500,
-              color: TEXT_DARK,
-              lineHeight: 1.7,
-              margin: 0,
-              maxWidth: "44ch",
-              textAlign: "justify",
-            }}>
-              Indibiotek aims to be a leading biotechnology company that uses home-grown innovation, responsible manufacturing, and smart technology to improve human health and protect the environment.
-            </p>
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14" style={{ alignItems: "start" }}>
 
-          {/* Mission + Values side by side */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14">
+            {/* Left col: Vision + Mission stacked */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "clamp(32px,4vw,48px)" }}>
 
-            {/* Mission */}
-            <div className="reveal" style={{
-              borderLeft: `3px solid ${ACCENT_BRIGHT}`,
-              paddingLeft: "clamp(20px,3vw,40px)",
-            }}>
-              <div style={{
-                fontFamily: "Menlo, monospace", fontSize: 14, fontWeight: 700,
-                letterSpacing: "0.18em", textTransform: "uppercase",
-                color: ACCENT, marginBottom: 14,
-              }}>Mission</div>
-              <p style={{
-                fontSize: "clamp(0.9rem, 1.2vw, 1rem)",
-                fontWeight: 500,
-                color: TEXT_DARK,
-                lineHeight: 1.7,
-                margin: 0,
-                maxWidth: "44ch",
-                textAlign: "justify",
+              {/* Vision */}
+              <div className="reveal" style={{
+                borderLeft: `3px solid ${ACCENT_BRIGHT}`,
+                paddingLeft: "clamp(20px,3vw,40px)",
               }}>
-                We exist to transform the potential of local innovation into global biotech solutions building sustainable systems, harnessing the power of data, and staying deeply committed to the health of people, communities, and the natural world.
-              </p>
+                <div style={{
+                  fontFamily: "Menlo, monospace", fontSize: 14, fontWeight: 700,
+                  letterSpacing: "0.18em", textTransform: "uppercase",
+                  color: ACCENT, marginBottom: 14,
+                }}>Vision</div>
+                <p style={{
+                  fontSize: "clamp(0.9rem, 1.2vw, 1rem)",
+                  fontWeight: 500,
+                  color: TEXT_DARK,
+                  lineHeight: 1.7,
+                  margin: 0,
+                  textAlign: "justify",
+                }}>
+                  Indibiotek aims to be a leading biotechnology company that uses home-grown innovation, responsible manufacturing, and smart technology to improve human health and protect the environment.
+                </p>
+              </div>
+
+              {/* Mission */}
+              <div className="reveal" style={{
+                borderLeft: `3px solid ${ACCENT_BRIGHT}`,
+                paddingLeft: "clamp(20px,3vw,40px)",
+              }}>
+                <div style={{
+                  fontFamily: "Menlo, monospace", fontSize: 14, fontWeight: 700,
+                  letterSpacing: "0.18em", textTransform: "uppercase",
+                  color: ACCENT, marginBottom: 14,
+                }}>Mission</div>
+                <p style={{
+                  fontSize: "clamp(0.9rem, 1.2vw, 1rem)",
+                  fontWeight: 500,
+                  color: TEXT_DARK,
+                  lineHeight: 1.7,
+                  margin: 0,
+                  textAlign: "justify",
+                }}>
+                  We exist to transform the potential of local innovation into global biotech solutions building sustainable systems, harnessing the power of data, and staying deeply committed to the health of people, communities, and the natural world.
+                </p>
+              </div>
+
             </div>
 
-            {/* Values */}
+            {/* Right col: Values */}
             <div className="reveal">
               <div style={{
                 fontFamily: "Menlo, monospace", fontSize: 14, fontWeight: 700,
