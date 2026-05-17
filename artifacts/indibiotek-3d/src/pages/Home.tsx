@@ -129,23 +129,6 @@ export default function Home() {
           </div>
 
         </div>
-        {/* Bottom-left attribution / caption */}
-        <div
-          className="absolute"
-          style={{
-            left: 20, bottom: 28,
-            color: "rgba(255,255,255,0.78)",
-            fontSize: 10.5,
-            letterSpacing: "0.20em",
-            fontFamily: "Menlo, monospace",
-            textTransform: "uppercase",
-            zIndex: 2,
-            maxWidth: "calc(100% - 40px)",
-          }}
-        >
-          <div style={{ marginBottom: 4, color: LIME }}>● Live R&amp;D</div>
-          Bench → Bioreactor → Field
-        </div>
         {/* Bottom-right scroll cue */}
         <div
           className="absolute hidden md:block"
