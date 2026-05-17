@@ -550,6 +550,32 @@ export default function About() {
         </div>
       </section>
 
+      {/* ─── PHOTO STRIP ─── */}
+      <div style={{ overflow: "hidden", width: "100%", paddingTop: 8, paddingBottom: 32, background: "#F4F8F5" }}>
+        <div className="marquee-track" style={{ animationDuration: "38s", alignItems: "stretch" }}>
+          {[0, 1].map(copy => (
+            <div key={copy} style={{ display: "flex", gap: 12, paddingRight: 12 }}>
+              {[
+                "/gallery/img-01.jpeg", "/gallery/img-02.jpeg", "/gallery/img-03.jpeg",
+                "/gallery/img-04.jpeg", "/gallery/img-05.jpeg", "/gallery/img-06.jpeg",
+                "/gallery/img-07.jpeg", "/gallery/img-08.jpeg", "/gallery/img-09.jpeg",
+                "/gallery/img-10.jpeg", "/gallery/img-11.jpeg", "/gallery/img-12.jpeg",
+                "/gallery/img-13.jpeg", "/gallery/img-14.jpeg", "/gallery/img-15.jpeg",
+                "/gallery/img-16.jpeg", "/gallery/img-17.jpg",  "/gallery/img-18.jpg",
+              ].map((src, i) => (
+                <div key={`${copy}-${i}`} style={{
+                  width: 200, height: 140, flexShrink: 0,
+                  borderRadius: 12, overflow: "hidden",
+                  boxShadow: "0 2px 10px rgba(14,42,28,0.09)",
+                }}>
+                  <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* ─── COLLABORATIONS & INCUBATION CENTRES ─── */}
       <section className="py-14 sm:py-20" style={{ background: "#F4F8F5", overflow: "hidden" }}>
         <div className="max-w-6xl mx-auto px-5 sm:px-8 md:px-16 mb-10 text-center">
