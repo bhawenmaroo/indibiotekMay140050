@@ -425,7 +425,7 @@ export default function About() {
       </section>
 
       {/* ─── LEADERSHIP TEAM ─── */}
-      <section className="px-5 sm:px-8 md:px-16 py-14 sm:py-20" style={{ background: "#FAFAF8" }}>
+      <section className="px-5 sm:px-8 md:px-16 py-14 sm:py-20" style={{ background: "#FFFFFF" }}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center" style={{ marginBottom: 56 }}>
             <div
