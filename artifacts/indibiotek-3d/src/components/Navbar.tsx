@@ -13,13 +13,17 @@ const DIVISIONS_ITEMS = [
   { label: "Scientific",   href: "/scientific" },
 ];
 
+const OFFERINGS_ITEMS = [
+  { label: "Catalogues", href: "/catalogues" },
+  { label: "Services",   href: "/services" },
+];
+
 const NAV_MAIN = [
   { label: "About",               href: "/about" },
-  { label: "Divisions",           href: null, dropdown: DIVISIONS_ITEMS },
+  { label: "Divisions",           href: null, dropdown: DIVISIONS_ITEMS, dropdownKey: "divisions" },
   { label: "R&D",                 href: "/rnd" },
   { label: "Publication & Patent",href: "/publications-patent" },
-  { label: "Services",            href: "/services" },
-  { label: "Catalogues",          href: "/catalogues" },
+  { label: "Offerings",           href: null, dropdown: OFFERINGS_ITEMS, dropdownKey: "offerings" },
   { label: "Careers",             href: "https://docs.google.com/forms/d/e/1FAIpQLScTZqh00Lhg8WmvrKbi1HZzeosr9unu0fEywbtqoyW-2iZr7A/viewform?usp=publish-editor", external: true },
 ];
 
@@ -29,7 +33,10 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [divOpen, setDivOpen] = useState(false);
   const [mobileDiv, setMobileDiv] = useState(false);
+  const [offerOpen, setOfferOpen] = useState(false);
+  const [mobileOffer, setMobileOffer] = useState(false);
   const divRef = useRef<HTMLDivElement>(null);
+  const offerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -38,7 +45,7 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => { setOpen(false); setDivOpen(false); }, [location]);
+  useEffect(() => { setOpen(false); setDivOpen(false); setOfferOpen(false); }, [location]);
 
   useEffect(() => {
     if (!open) return;
@@ -53,20 +60,27 @@ export function Navbar() {
   useEffect(() => {
     if (!divOpen) return;
     const handler = (e: MouseEvent) => {
-      if (divRef.current && !divRef.current.contains(e.target as Node)) {
-        setDivOpen(false);
-      }
+      if (divRef.current && !divRef.current.contains(e.target as Node)) setDivOpen(false);
     };
     const onScroll = () => setDivOpen(false);
     document.addEventListener("mousedown", handler);
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      document.removeEventListener("mousedown", handler);
-      window.removeEventListener("scroll", onScroll);
-    };
+    return () => { document.removeEventListener("mousedown", handler); window.removeEventListener("scroll", onScroll); };
   }, [divOpen]);
 
+  useEffect(() => {
+    if (!offerOpen) return;
+    const handler = (e: MouseEvent) => {
+      if (offerRef.current && !offerRef.current.contains(e.target as Node)) setOfferOpen(false);
+    };
+    const onScroll = () => setOfferOpen(false);
+    document.addEventListener("mousedown", handler);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => { document.removeEventListener("mousedown", handler); window.removeEventListener("scroll", onScroll); };
+  }, [offerOpen]);
+
   const isDivisionActive = DIVISIONS_ITEMS.some(d => location.startsWith(d.href));
+  const isOfferingActive = OFFERINGS_ITEMS.some(d => location.startsWith(d.href));
 
   return (
     <nav
@@ -115,22 +129,29 @@ export function Navbar() {
         <div className="hidden md:flex items-center" style={{ gap: 0 }}>
           {NAV_MAIN.map((item) => {
             if (item.dropdown) {
+              const isDivisions = item.dropdownKey === "divisions";
+              const isOpen   = isDivisions ? divOpen   : offerOpen;
+              const setOpen2 = isDivisions ? setDivOpen : setOfferOpen;
+              const ref2     = isDivisions ? divRef    : offerRef;
+              const isActive = isDivisions ? isDivisionActive : isOfferingActive;
+              const items    = item.dropdown;
+
               return (
-                <div key="divisions" ref={divRef} style={{ position: "relative" }}>
+                <div key={item.dropdownKey} ref={ref2} style={{ position: "relative" }}>
                   <button
-                    onClick={() => setDivOpen(v => !v)}
+                    onClick={() => { setOpen2(v => !v); if (isDivisions) setOfferOpen(false); else setDivOpen(false); }}
                     style={{
                       padding: "8px 14px",
                       fontSize: 13,
                       fontWeight: 500,
-                      color: isDivisionActive ? TEXT_ACT : TEXT_BODY,
+                      color: isActive ? TEXT_ACT : TEXT_BODY,
                       letterSpacing: "0.005em",
                       borderRadius: 999,
                       transition: "all 0.2s",
                       display: "inline-flex",
                       alignItems: "center",
                       gap: 5,
-                      background: isDivisionActive ? "rgba(20,181,126,0.12)" : "transparent",
+                      background: isActive ? "rgba(20,181,126,0.12)" : "transparent",
                       border: "none",
                       cursor: "pointer",
                       whiteSpace: "nowrap",
@@ -139,13 +160,13 @@ export function Navbar() {
                     {item.label}
                     <svg
                       width="10" height="10" viewBox="0 0 10 10" fill="none"
-                      style={{ transition: "transform 0.2s", transform: divOpen ? "rotate(180deg)" : "rotate(0deg)" }}
+                      style={{ transition: "transform 0.2s", transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}
                     >
                       <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </button>
 
-                  {divOpen && (
+                  {isOpen && (
                     <div
                       className="nav-dropdown-panel"
                       style={{
@@ -164,7 +185,7 @@ export function Navbar() {
                         zIndex: 100,
                       }}
                     >
-                      {DIVISIONS_ITEMS.map(d => {
+                      {items.map(d => {
                         const active = location.startsWith(d.href);
                         return (
                           <Link key={d.href} href={d.href}>
@@ -354,17 +375,23 @@ export function Navbar() {
         >
           {NAV_MAIN.map((item) => {
             if (item.dropdown) {
+              const isDivisions  = item.dropdownKey === "divisions";
+              const mobileIsOpen = isDivisions ? mobileDiv  : mobileOffer;
+              const setMobileOpen = isDivisions ? setMobileDiv : setMobileOffer;
+              const isActive     = isDivisions ? isDivisionActive : isOfferingActive;
+              const items        = item.dropdown;
+
               return (
-                <div key="divisions-mobile">
+                <div key={`${item.dropdownKey}-mobile`}>
                   <div
-                    onClick={() => setMobileDiv(v => !v)}
+                    onClick={() => setMobileOpen(v => !v)}
                     style={{
                       padding: "12px 16px",
                       fontSize: 14,
-                      color: isDivisionActive ? TEXT_ACT : TEXT_BODY,
+                      color: isActive ? TEXT_ACT : TEXT_BODY,
                       cursor: "pointer",
                       borderRadius: 8,
-                      background: isDivisionActive ? "rgba(20,181,126,0.10)" : "transparent",
+                      background: isActive ? "rgba(20,181,126,0.10)" : "transparent",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "space-between",
@@ -373,12 +400,12 @@ export function Navbar() {
                     {item.label}
                     <svg
                       width="10" height="10" viewBox="0 0 10 10" fill="none"
-                      style={{ transition: "transform 0.2s", transform: mobileDiv ? "rotate(180deg)" : "rotate(0deg)" }}
+                      style={{ transition: "transform 0.2s", transform: mobileIsOpen ? "rotate(180deg)" : "rotate(0deg)" }}
                     >
                       <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
-                  {mobileDiv && DIVISIONS_ITEMS.map((d, i) => (
+                  {mobileIsOpen && items.map((d, i) => (
                     <Link key={d.href} href={d.href}>
                       <div
                         className="nav-mobile-sub"
