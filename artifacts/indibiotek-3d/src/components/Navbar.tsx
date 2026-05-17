@@ -20,6 +20,7 @@ const NAV_MAIN = [
   { label: "R&D",                 href: "/rnd" },
   { label: "Publication & Patent",href: "/publications-patent" },
   { label: "Services",            href: "/services" },
+  { label: "Careers",             href: "https://docs.google.com/forms/d/e/1FAIpQLScTZqh00Lhg8WmvrKbi1HZzeosr9unu0fEywbtqoyW-2iZr7A/viewform?usp=publish-editor", external: true },
 ];
 
 export function Navbar() {
@@ -184,6 +185,32 @@ export function Navbar() {
                     </div>
                   )}
                 </div>
+              );
+            }
+
+            if (item.external) {
+              return (
+                <a
+                  key={item.href}
+                  href={item.href!}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    padding: "8px 14px",
+                    fontSize: 13,
+                    fontWeight: 500,
+                    color: TEXT_BODY,
+                    letterSpacing: "0.005em",
+                    borderRadius: 999,
+                    transition: "all 0.2s",
+                    display: "inline-block",
+                    background: "transparent",
+                    whiteSpace: "nowrap",
+                    textDecoration: "none",
+                  }}
+                >
+                  {item.label}
+                </a>
               );
             }
 
@@ -364,6 +391,28 @@ export function Navbar() {
                 </div>
               );
             }
+            if (item.external) {
+              return (
+                <a
+                  key={item.href}
+                  href={item.href!}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "block",
+                    padding: "12px 16px",
+                    fontSize: 14,
+                    color: TEXT_BODY,
+                    cursor: "pointer",
+                    borderRadius: 8,
+                    textDecoration: "none",
+                  }}
+                >
+                  {item.label}
+                </a>
+              );
+            }
+
             const active = item.href === "/" ? location === "/" : location.startsWith(item.href!);
             return (
               <Link key={item.href} href={item.href!}>
