@@ -71,26 +71,37 @@ export default function Gallery() {
               style={{
                 borderRadius: 14,
                 overflow: "hidden",
-                cursor: "pointer",
+                cursor: "zoom-in",
                 border: "1px solid rgba(14,42,28,0.08)",
                 boxShadow: "0 4px 16px rgba(14,42,28,0.07)",
                 background: "#fff",
-                transition: "transform 0.2s, box-shadow 0.2s",
+                transition: "transform 0.28s cubic-bezier(0.25,0.8,0.25,1), box-shadow 0.28s ease",
               }}
               onMouseEnter={e => {
-                (e.currentTarget as HTMLDivElement).style.transform = "translateY(-3px)";
-                (e.currentTarget as HTMLDivElement).style.boxShadow = "0 10px 28px rgba(14,42,28,0.13)";
+                (e.currentTarget as HTMLDivElement).style.transform = "translateY(-4px) scale(1.01)";
+                (e.currentTarget as HTMLDivElement).style.boxShadow = "0 14px 36px rgba(14,42,28,0.14)";
               }}
               onMouseLeave={e => {
-                (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
+                (e.currentTarget as HTMLDivElement).style.transform = "translateY(0) scale(1)";
                 (e.currentTarget as HTMLDivElement).style.boxShadow = "0 4px 16px rgba(14,42,28,0.07)";
               }}
             >
-              <img
-                src={img.src}
-                alt={img.caption ?? `Gallery image ${i + 1}`}
-                style={{ width: "100%", aspectRatio: "4 / 3", objectFit: "cover", display: "block" }}
-              />
+              <div className="gallery-img-wrap" style={{ aspectRatio: "4 / 3" }}>
+                <img
+                  src={img.src}
+                  alt={img.caption ?? `Gallery image ${i + 1}`}
+                  style={{ aspectRatio: "4 / 3", objectFit: "cover" }}
+                />
+                {/* Zoom hint — appears on hover only */}
+                <div className="zoom-hint">
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.3))" }}>
+                    <circle cx="11" cy="11" r="7"/>
+                    <line x1="16.5" y1="16.5" x2="22" y2="22"/>
+                    <line x1="11" y1="8" x2="11" y2="14"/>
+                    <line x1="8" y1="11" x2="14" y2="11"/>
+                  </svg>
+                </div>
+              </div>
               {img.caption && (
                 <div style={{ padding: "10px 14px", fontSize: 13, color: TEXT_BODY, fontWeight: 500, lineHeight: 1.5 }}>
                   {img.caption}
@@ -104,6 +115,7 @@ export default function Gallery() {
       {/* Expanded image overlay */}
       {lightbox !== null && (
         <div
+          className="gallery-backdrop"
           onClick={() => setLightbox(null)}
           style={{
             position: "fixed", inset: 0, zIndex: 999,
@@ -114,6 +126,7 @@ export default function Gallery() {
           }}
         >
           <div
+            className="gallery-card"
             onClick={e => e.stopPropagation()}
             style={{
               background: "#fff",
