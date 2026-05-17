@@ -1,13 +1,6 @@
 import { PageShell, GlassCard, SectionHeading } from "@/components/PageShell";
 import { Tilt3D } from "@/components/Tilt3D";
 
-const VALUES = [
-  { title: "Indigenous Innovation",        desc: "Championing home-grown ideas and technologies that solve local and global challenges." },
-  { title: "Scientific Integrity",         desc: "Rigorous, transparent, and ethical science at every stage of research and development." },
-  { title: "Sustainability",               desc: "Building systems and products that respect biology, communities, and the planet." },
-  { title: "Data & Technology Excellence", desc: "Harnessing the power of data and smart technology to drive precision and impact." },
-  { title: "Collaboration & Inclusivity",  desc: "Diverse minds and open partnerships that make our work stronger and more far-reaching." },
-];
 
 type Person = {
   name: string;
@@ -596,69 +589,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* ─── VISION & MISSION ─── */}
-      <section className="px-5 sm:px-8 md:px-16 py-14 sm:py-20">
-        <div className="max-w-6xl mx-auto">
-          <SectionHeading eyebrow="Purpose" title="Vision & Mission" align="center" />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
-            <Tilt3D max={6} scale={1.01}>
-              <GlassCard style={{ padding: "clamp(28px, 4vw, 44px)", height: "100%" }}>
-                <div style={{
-                  display: "inline-flex", alignItems: "center", gap: 8,
-                  marginBottom: 18,
-                  background: "rgba(11,106,77,0.08)", borderRadius: 8,
-                  padding: "5px 12px",
-                }}>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0B6A4D" strokeWidth="2" strokeLinecap="round">
-                    <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/>
-                  </svg>
-                  <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#0B6A4D", fontFamily: "Menlo, monospace" }}>Vision</span>
-                </div>
-                <p style={{ color: "rgba(14,42,28,0.80)", fontSize: "1.05rem", lineHeight: 1.75, fontWeight: 400 }}>
-                  Indibiotek aims to be a leading biotechnology company that uses home-grown innovation, responsible manufacturing, and smart technology to improve human health and protect the environment.
-                </p>
-              </GlassCard>
-            </Tilt3D>
-            <Tilt3D max={6} scale={1.01}>
-              <GlassCard style={{ padding: "clamp(28px, 4vw, 44px)", height: "100%" }}>
-                <div style={{
-                  display: "inline-flex", alignItems: "center", gap: 8,
-                  marginBottom: 18,
-                  background: "rgba(11,106,77,0.08)", borderRadius: 8,
-                  padding: "5px 12px",
-                }}>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0B6A4D" strokeWidth="2" strokeLinecap="round">
-                    <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
-                  </svg>
-                  <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#0B6A4D", fontFamily: "Menlo, monospace" }}>Mission</span>
-                </div>
-                <p style={{ color: "rgba(14,42,28,0.80)", fontSize: "1.05rem", lineHeight: 1.75, fontWeight: 400 }}>
-                  We exist to transform the potential of local innovation into global biotech solutions — building sustainable systems, harnessing the power of data, and staying deeply committed to the health of people, communities, and the natural world.
-                </p>
-              </GlassCard>
-            </Tilt3D>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── VALUES ─── */}
-      <section className="px-5 sm:px-8 md:px-16 py-12 sm:py-16" style={{ background: "rgba(20,181,126,0.04)" }}>
-        <div className="max-w-6xl mx-auto">
-          <SectionHeading eyebrow="Our Values" title="What guides every decision" align="center" />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {VALUES.map((v) => (
-              <Tilt3D key={v.title} max={8} scale={1.015}>
-                <GlassCard style={{ padding: 26, height: "100%" }}>
-                  <h3 className="font-display" style={{ fontSize: "1.1rem", fontWeight: 600, color: "#0E2A1C", marginBottom: 10 }}>
-                    {v.title}
-                  </h3>
-                  <p style={{ color: "rgba(14,42,28,0.65)", fontSize: 14, lineHeight: 1.65, fontWeight: 300 }}>{v.desc}</p>
-                </GlassCard>
-              </Tilt3D>
-            ))}
-          </div>
-        </div>
-      </section>
     </PageShell>
   );
 }
