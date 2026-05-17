@@ -322,7 +322,7 @@ export default function About() {
 
       {/* ─── EXPLORE GALLERY CTA ─── */}
       <div className="px-5 sm:px-8 md:px-16 pb-10">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto" style={{ textAlign: "center" }}>
           <a
             href={import.meta.env.BASE_URL + "gallery"}
             style={{
