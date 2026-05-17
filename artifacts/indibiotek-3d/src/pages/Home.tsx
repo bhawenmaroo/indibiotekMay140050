@@ -227,8 +227,8 @@ export default function Home() {
             marginBottom: "clamp(40px,5vw,64px)",
           }}>
             <div style={{
-              fontFamily: "Menlo, monospace", fontSize: 10, fontWeight: 700,
-              letterSpacing: "0.22em", textTransform: "uppercase",
+              fontFamily: "Menlo, monospace", fontSize: 14, fontWeight: 700,
+              letterSpacing: "0.18em", textTransform: "uppercase",
               color: ACCENT, marginBottom: 14,
             }}>Vision</div>
             <p style={{
@@ -238,6 +238,7 @@ export default function Home() {
               lineHeight: 1.7,
               margin: 0,
               maxWidth: "44ch",
+              textAlign: "justify",
             }}>
               Indibiotek aims to be a leading biotechnology company that uses home-grown innovation, responsible manufacturing, and smart technology to improve human health and protect the environment.
             </p>
@@ -252,8 +253,8 @@ export default function Home() {
               paddingLeft: "clamp(20px,3vw,40px)",
             }}>
               <div style={{
-                fontFamily: "Menlo, monospace", fontSize: 10, fontWeight: 700,
-                letterSpacing: "0.22em", textTransform: "uppercase",
+                fontFamily: "Menlo, monospace", fontSize: 14, fontWeight: 700,
+                letterSpacing: "0.18em", textTransform: "uppercase",
                 color: ACCENT, marginBottom: 14,
               }}>Mission</div>
               <p style={{
@@ -263,6 +264,7 @@ export default function Home() {
                 lineHeight: 1.7,
                 margin: 0,
                 maxWidth: "44ch",
+                textAlign: "justify",
               }}>
                 We exist to transform the potential of local innovation into global biotech solutions building sustainable systems, harnessing the power of data, and staying deeply committed to the health of people, communities, and the natural world.
               </p>
@@ -271,8 +273,8 @@ export default function Home() {
             {/* Values */}
             <div className="reveal">
               <div style={{
-                fontFamily: "Menlo, monospace", fontSize: 10, fontWeight: 700,
-                letterSpacing: "0.22em", textTransform: "uppercase",
+                fontFamily: "Menlo, monospace", fontSize: 14, fontWeight: 700,
+                letterSpacing: "0.18em", textTransform: "uppercase",
                 color: ACCENT, marginBottom: 16,
               }}>Values</div>
               <div style={{ display: "flex", flexDirection: "column", gap: 0, borderTop: `1px solid rgba(14,42,28,0.08)` }}>
