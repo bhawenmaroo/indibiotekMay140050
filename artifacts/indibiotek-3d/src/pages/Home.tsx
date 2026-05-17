@@ -125,7 +125,7 @@ export default function Home() {
               textShadow: "0 2px 12px rgba(0,0,0,0.4)",
             }}
           >
-            A science-driven biotechnology company building integrated solutions across the lifesciences and agri value chain — from molecular discovery to scaled, sustainable delivery.
+            INDIBIOTEK Private Limited is an emerging deep-tech biotechnology startup developing field-deployable rapid diagnostic kits for aquaculture and healthcare
           </div>
 
         </div>
