@@ -217,136 +217,89 @@ export default function Home() {
       </section>
 
       {/* ─── VISION, MISSION & VALUES ─── */}
-      <section style={{ background: DARK_BG, position: "relative", overflow: "hidden" }}>
-        {/* background texture */}
-        <div aria-hidden style={{
-          position: "absolute", inset: 0, pointerEvents: "none",
-          backgroundImage: "radial-gradient(ellipse 70% 60% at 80% 20%, rgba(20,181,126,0.10) 0%, transparent 70%), radial-gradient(ellipse 50% 50% at 10% 80%, rgba(200,255,77,0.05) 0%, transparent 60%)",
-        }} />
+      <section className="relative px-5 sm:px-6 md:px-12" style={{ background: BG, paddingBottom: "clamp(56px,8vw,100px)" }}>
+        <div className="max-w-[1180px] mx-auto">
 
-        <div className="max-w-[1180px] mx-auto px-5 sm:px-8 md:px-12" style={{ paddingTop: "clamp(40px,5vw,72px)", paddingBottom: "clamp(60px,8vw,110px)" }}>
-
-          {/* eyebrow */}
-          <div className="reveal" style={{ marginBottom: "clamp(40px,6vw,72px)" }}>
-            <span style={{
-              fontFamily: "Menlo, monospace", fontSize: 11, fontWeight: 700,
-              letterSpacing: "0.22em", textTransform: "uppercase",
-              color: LIME, opacity: 0.9,
-            }}>— Our Purpose</span>
-          </div>
-
-          {/* Vision — large statement */}
-          <div className="reveal" style={{ marginBottom: "clamp(48px,7vw,88px)" }}>
-            <div style={{
-              display: "flex", alignItems: "flex-start", gap: "clamp(16px,3vw,40px)",
-              flexWrap: "wrap",
-            }}>
-              <div style={{
-                fontFamily: "Menlo, monospace", fontSize: 11, fontWeight: 700,
-                letterSpacing: "0.18em", textTransform: "uppercase",
-                color: LIME, paddingTop: 10, minWidth: 70, flexShrink: 0,
-              }}>VISION</div>
-              <h3 style={{
-                fontSize: "clamp(1.6rem, 3.5vw, 2.6rem)",
-                fontWeight: 700,
-                color: "#F0FFF6",
-                lineHeight: 1.25,
-                letterSpacing: "-0.02em",
-                maxWidth: "22ch",
-                margin: 0,
-              }}>
-                A leading biotech built on{" "}
-                <em style={{ color: LIME, fontStyle: "italic" }}>home-grown innovation</em>
-                {" "}— improving human health &amp; protecting the planet.
-              </h3>
-            </div>
-          </div>
-
-          {/* thin divider */}
+          {/* Vision — pull-quote continuation of the heading above */}
           <div className="reveal" style={{
-            height: 1,
-            background: "linear-gradient(90deg, rgba(200,255,77,0.35) 0%, rgba(200,255,77,0.05) 60%, transparent 100%)",
-            marginBottom: "clamp(48px,7vw,88px)",
-          }} />
-
-          {/* Mission — two-column editorial */}
-          <div className="reveal" style={{
-            display: "grid",
-            gridTemplateColumns: "minmax(80px,140px) 1fr",
-            gap: "clamp(16px,3vw,48px)",
-            alignItems: "start",
-            marginBottom: "clamp(56px,8vw,100px)",
+            borderLeft: `3px solid ${ACCENT_BRIGHT}`,
+            paddingLeft: "clamp(20px,3vw,40px)",
+            marginBottom: "clamp(40px,5vw,64px)",
           }}>
-            <div>
-              <span style={{
-                fontFamily: "Menlo, monospace", fontSize: 11, fontWeight: 700,
-                letterSpacing: "0.18em", textTransform: "uppercase", color: LIME,
-              }}>MISSION</span>
-            </div>
+            <div style={{
+              fontFamily: "Menlo, monospace", fontSize: 10, fontWeight: 700,
+              letterSpacing: "0.22em", textTransform: "uppercase",
+              color: ACCENT, marginBottom: 14,
+            }}>Vision</div>
             <p style={{
-              fontSize: "clamp(1.05rem, 2vw, 1.35rem)",
-              color: "rgba(240,255,246,0.72)",
-              lineHeight: 1.70,
-              fontWeight: 300,
+              fontSize: "clamp(1.25rem, 2.6vw, 2rem)",
+              fontWeight: 700,
+              color: TEXT_DARK,
+              lineHeight: 1.3,
+              letterSpacing: "-0.02em",
               margin: 0,
-              maxWidth: "58ch",
+              maxWidth: "30ch",
             }}>
-              We exist to transform the potential of local innovation into global biotech solutions — building{" "}
-              <span style={{ color: "#F0FFF6", fontWeight: 500 }}>sustainable systems</span>, harnessing the power of{" "}
-              <span style={{ color: "#F0FFF6", fontWeight: 500 }}>data</span>, and staying deeply committed to the health of people, communities, and the natural world.
+              A leading biotech built on{" "}
+              <em style={{ color: ACCENT_BRIGHT, fontStyle: "italic" }}>home-grown innovation</em>
+              {" "}— improving human health &amp; protecting the planet.
             </p>
           </div>
 
-          {/* Values — stacked large numbered list */}
-          <div className="reveal" style={{ marginBottom: "clamp(8px,2vw,20px)" }}>
-            <span style={{
-              fontFamily: "Menlo, monospace", fontSize: 11, fontWeight: 700,
-              letterSpacing: "0.22em", textTransform: "uppercase", color: LIME, opacity: 0.9,
-            }}>VALUES</span>
-          </div>
-          <div style={{ borderTop: "1px solid rgba(200,255,77,0.15)" }}>
-            {[
-              { n: "01", title: "Indigenous Innovation" },
-              { n: "02", title: "Scientific Integrity" },
-              { n: "03", title: "Sustainability" },
-              { n: "04", title: "Data & Technology Excellence" },
-              { n: "05", title: "Collaboration & Inclusivity" },
-            ].map((v, i) => (
-              <div key={v.n} className="reveal" style={{
-                display: "flex", alignItems: "center",
-                gap: "clamp(20px,4vw,56px)",
-                padding: "clamp(18px,2.5vw,28px) 0",
-                borderBottom: "1px solid rgba(200,255,77,0.10)",
-                transition: "background 0.2s",
-              }}>
-                <span style={{
-                  fontFamily: "Menlo, monospace",
-                  fontSize: "clamp(2.2rem,4vw,3.5rem)",
-                  fontWeight: 700,
-                  color: "rgba(200,255,77,0.18)",
-                  lineHeight: 1,
-                  minWidth: "3ch",
-                  letterSpacing: "-0.04em",
-                  flexShrink: 0,
-                }}>{v.n}</span>
-                <span style={{
-                  fontSize: "clamp(1.1rem, 2.2vw, 1.6rem)",
-                  fontWeight: 600,
-                  color: "#F0FFF6",
-                  letterSpacing: "-0.01em",
-                  lineHeight: 1.2,
-                }}>{v.title}</span>
-                <span style={{
-                  marginLeft: "auto", flexShrink: 0,
-                  width: 32, height: 32, borderRadius: "50%",
-                  border: "1px solid rgba(200,255,77,0.20)",
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  color: LIME, fontSize: 14, opacity: 0.6,
-                }}>↗</span>
-              </div>
-            ))}
-          </div>
+          {/* Mission + Values side by side */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14">
 
+            {/* Mission */}
+            <div className="reveal">
+              <div style={{
+                fontFamily: "Menlo, monospace", fontSize: 10, fontWeight: 700,
+                letterSpacing: "0.22em", textTransform: "uppercase",
+                color: ACCENT, marginBottom: 16,
+              }}>Mission</div>
+              <p style={{
+                fontSize: "clamp(0.95rem, 1.4vw, 1.1rem)",
+                color: "rgba(14,42,28,0.70)",
+                lineHeight: 1.75,
+                fontWeight: 400,
+                margin: 0,
+              }}>
+                We exist to transform the potential of local innovation into global biotech solutions — building{" "}
+                <span style={{ color: TEXT_DARK, fontWeight: 600 }}>sustainable systems</span>, harnessing the power of{" "}
+                <span style={{ color: TEXT_DARK, fontWeight: 600 }}>data</span>, and staying deeply committed to the health of people, communities, and the natural world.
+              </p>
+            </div>
+
+            {/* Values */}
+            <div className="reveal">
+              <div style={{
+                fontFamily: "Menlo, monospace", fontSize: 10, fontWeight: 700,
+                letterSpacing: "0.22em", textTransform: "uppercase",
+                color: ACCENT, marginBottom: 16,
+              }}>Values</div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 0, borderTop: `1px solid rgba(14,42,28,0.08)` }}>
+                {[
+                  "Indigenous Innovation",
+                  "Scientific Integrity",
+                  "Sustainability",
+                  "Data & Technology Excellence",
+                  "Collaboration & Inclusivity",
+                ].map((title, i) => (
+                  <div key={title} style={{
+                    display: "flex", alignItems: "center", gap: 14,
+                    padding: "11px 0",
+                    borderBottom: "1px solid rgba(14,42,28,0.08)",
+                  }}>
+                    <span style={{
+                      fontFamily: "Menlo, monospace", fontSize: 10, fontWeight: 700,
+                      color: ACCENT_BRIGHT, letterSpacing: "0.1em", flexShrink: 0,
+                    }}>0{i + 1}</span>
+                    <span style={{ fontSize: 14, fontWeight: 600, color: TEXT_DARK, lineHeight: 1.3 }}>{title}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
         </div>
       </section>
 
