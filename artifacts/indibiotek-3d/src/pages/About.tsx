@@ -105,69 +105,54 @@ function LeaderCard({ p }: { p: Person }) {
     <div
       className="page-reveal"
       style={{
-        background: "#FFFFFF",
-        border: "1px solid rgba(14,42,28,0.08)",
-        borderRadius: 20,
-        overflow: "hidden",
-        height: "100%",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        boxShadow: "0 1px 0 rgba(255,255,255,1) inset, 0 14px 34px rgba(14,42,28,0.10)",
-        padding: "32px 20px 28px",
         textAlign: "center",
+        padding: "8px 12px 16px",
       }}
       data-testid={`person-${p.name.toLowerCase().replace(/[^a-z]/g, "")}`}
     >
-      {/* Circular photo */}
+      {/* Circular photo — no box */}
       <div style={{
-        width: 120, height: 120,
+        width: 160, height: 160,
         borderRadius: "50%",
         overflow: "hidden",
-        border: `3px solid rgba(11,106,77,0.18)`,
-        boxShadow: "0 4px 18px rgba(11,106,77,0.14)",
-        marginBottom: 20,
+        border: `3px solid rgba(11,106,77,0.22)`,
+        boxShadow: "0 6px 24px rgba(11,106,77,0.18)",
+        marginBottom: 18,
         flexShrink: 0,
         background: ACCENT,
         display: "flex", alignItems: "center", justifyContent: "center",
       }}>
         {p.photo
           ? <img src={p.photo} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }} />
-          : <span style={{ color: "#fff", fontWeight: 700, fontSize: 40 }}>{initialsOf(p.name)}</span>
+          : <span style={{ color: "#fff", fontWeight: 700, fontSize: 52 }}>{initialsOf(p.name)}</span>
         }
       </div>
 
-      {/* Body */}
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", flex: 1 }}>
-        <span style={{
-          width: 28, height: 2, background: ACCENT,
-          boxShadow: `0 0 10px rgba(20,181,126,0.65), 0 0 4px rgba(11,106,77,0.9)`,
-          marginBottom: 14, borderRadius: 2,
-        }} />
-        <h4
-          className="font-display"
-          style={{
-            fontSize: "1.15rem",
-            fontWeight: 700,
-            color: TEXT_DARK,
-            letterSpacing: "-0.01em",
-            marginBottom: 6,
-            lineHeight: 1.2,
-          }}
-        >
-          {p.name}
-        </h4>
-        <p
-          style={{
-            color: ACCENT,
-            fontSize: 12.5,
-            fontWeight: 600,
-            lineHeight: 1.45,
-          }}
-        >
-          {p.role}
-        </p>
-      </div>
+      {/* Name & role */}
+      <span style={{
+        width: 24, height: 2, background: ACCENT,
+        boxShadow: `0 0 8px rgba(20,181,126,0.6)`,
+        marginBottom: 12, borderRadius: 2, display: "block",
+      }} />
+      <h4
+        className="font-display"
+        style={{
+          fontSize: "1.05rem",
+          fontWeight: 700,
+          color: TEXT_DARK,
+          letterSpacing: "-0.01em",
+          marginBottom: 5,
+          lineHeight: 1.2,
+        }}
+      >
+        {p.name}
+      </h4>
+      <p style={{ color: ACCENT, fontSize: 12, fontWeight: 600, lineHeight: 1.45, margin: 0 }}>
+        {p.role}
+      </p>
     </div>
   );
 }
