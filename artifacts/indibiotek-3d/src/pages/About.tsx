@@ -286,6 +286,45 @@ export default function About() {
       intro="INDIBIOTEK Private Limited is an emerging deep-tech biotechnology startup developing field-deployable rapid diagnostic kits for aquaculture and healthcare. Founded in 2024 on the principles of indigenous research and sustainable technology, the company is dedicated to designing and developing portable, accurate, and easy-to-use testing solutions that work effectively outside of traditional laboratory settings."
       heroImage="https://images.unsplash.com/photo-1581093588401-fbb62a02f120?"
     >
+      {/* ─── EXPLORE GALLERY CTA ─── */}
+      <div className="px-5 sm:px-8 md:px-16 pt-8 pb-2">
+        <div className="max-w-6xl mx-auto">
+          <a
+            href={import.meta.env.BASE_URL + "gallery"}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              padding: "12px 28px",
+              borderRadius: 999,
+              fontSize: 14,
+              fontWeight: 700,
+              fontFamily: "'Inter', 'Segoe UI', system-ui, sans-serif",
+              color: "#fff",
+              background: "#0B6A4D",
+              textDecoration: "none",
+              letterSpacing: "0.01em",
+              boxShadow: "0 4px 16px rgba(11,106,77,0.18)",
+              transition: "background 0.2s, box-shadow 0.2s",
+            }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLAnchorElement).style.background = "#14B57E";
+              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 6px 22px rgba(20,181,126,0.28)";
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLAnchorElement).style.background = "#0B6A4D";
+              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 4px 16px rgba(11,106,77,0.18)";
+            }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/>
+            </svg>
+            Explore Gallery
+          </a>
+        </div>
+      </div>
+
       {/* ─── DIVISIONS ─── */}
       <section className="px-5 sm:px-8 md:px-16 pt-10 pb-14">
         <div className="max-w-6xl mx-auto">
