@@ -331,12 +331,12 @@ export default function Home() {
                 className="reveal"
                 style={{
                   fontFamily: "Menlo, monospace",
-                  fontSize: 11, letterSpacing: "0.22em",
+                  fontSize: 14, letterSpacing: "0.18em",
                   textTransform: "uppercase", color: ACCENT,
-                  marginBottom: 18,
+                  fontWeight: 700, marginBottom: 18,
                 }}
               >
-                — 01 / Our Divisions
+                Our Divisions
               </div>
               <h2
                 className="reveal font-display"
@@ -452,12 +452,12 @@ export default function Home() {
             className="reveal"
             style={{
               fontFamily: "Menlo, monospace",
-              fontSize: 11, letterSpacing: "0.22em",
+              fontSize: 14, letterSpacing: "0.18em",
               textTransform: "uppercase", color: LIME,
-              marginBottom: 22,
+              fontWeight: 700, marginBottom: 22,
             }}
           >
-            — 02 / Inside our labs
+            Inside Our Labs
           </div>
           <h2
             className="reveal font-display"
@@ -521,11 +521,11 @@ export default function Home() {
           <div className="lg:col-span-6 reveal">
             <div style={{
               fontFamily: "Menlo, monospace",
-              fontSize: 11, letterSpacing: "0.22em",
+              fontSize: 14, letterSpacing: "0.18em",
               textTransform: "uppercase", color: ACCENT,
-              marginBottom: 14,
+              fontWeight: 700, marginBottom: 14,
             }}>
-              — 03 / Lifesciences
+              Lifesciences
             </div>
             <h2 className="font-display mb-4" style={{
               fontSize: "clamp(1.8rem, 3.4vw, 2.6rem)",
@@ -554,11 +554,11 @@ export default function Home() {
           <div className="lg:col-span-6 reveal lg:order-1 order-2">
             <div style={{
               fontFamily: "Menlo, monospace",
-              fontSize: 11, letterSpacing: "0.22em",
+              fontSize: 14, letterSpacing: "0.18em",
               textTransform: "uppercase", color: ACCENT,
-              marginBottom: 14,
+              fontWeight: 700, marginBottom: 14,
             }}>
-              — 04 / Scientific
+              Scientific
             </div>
             <h2 className="font-display mb-4" style={{
               fontSize: "clamp(1.4rem, 2.6vw, 2rem)",
@@ -618,12 +618,12 @@ export default function Home() {
             className="reveal"
             style={{
               fontFamily: "Menlo, monospace",
-              fontSize: 11, letterSpacing: "0.22em",
+              fontSize: 14, letterSpacing: "0.18em",
               textTransform: "uppercase", color: LIME,
-              marginBottom: 22,
+              fontWeight: 700, marginBottom: 22,
             }}
           >
-            — 05 / From Lab to Field
+            From Lab to Field
           </div>
           <h2
             className="reveal font-display"
@@ -689,12 +689,12 @@ export default function Home() {
                 <div
                   style={{
                     fontFamily: "Menlo, monospace",
-                    fontSize: 11, letterSpacing: "0.22em",
+                    fontSize: 14, letterSpacing: "0.18em",
                     textTransform: "uppercase", color: LIME,
-                    marginBottom: 22,
+                    fontWeight: 700, marginBottom: 22,
                   }}
                 >
-                  — 06 / Newsletter & Gallery
+                  Newsletter & Gallery
                 </div>
                 <h2
                   className="font-display"
