@@ -232,17 +232,14 @@ export default function Home() {
               color: ACCENT, marginBottom: 14,
             }}>Vision</div>
             <p style={{
-              fontSize: "clamp(1.25rem, 2.6vw, 2rem)",
-              fontWeight: 700,
+              fontSize: "clamp(0.9rem, 1.2vw, 1rem)",
+              fontWeight: 500,
               color: TEXT_DARK,
-              lineHeight: 1.3,
-              letterSpacing: "-0.02em",
+              lineHeight: 1.7,
               margin: 0,
-              maxWidth: "30ch",
+              maxWidth: "44ch",
             }}>
-              A leading biotech built on{" "}
-              <em style={{ color: ACCENT_BRIGHT, fontStyle: "italic" }}>home-grown innovation</em>
-              {" "}— improving human health &amp; protecting the planet.
+              Indibiotek aims to be a leading biotechnology company that uses home-grown innovation, responsible manufacturing, and smart technology to improve human health and protect the environment.
             </p>
           </div>
 
@@ -260,17 +257,14 @@ export default function Home() {
                 color: ACCENT, marginBottom: 14,
               }}>Mission</div>
               <p style={{
-                fontSize: "clamp(1.25rem, 2.6vw, 2rem)",
-                fontWeight: 700,
+                fontSize: "clamp(0.9rem, 1.2vw, 1rem)",
+                fontWeight: 500,
                 color: TEXT_DARK,
-                lineHeight: 1.3,
-                letterSpacing: "-0.02em",
+                lineHeight: 1.7,
                 margin: 0,
-                maxWidth: "30ch",
+                maxWidth: "44ch",
               }}>
-                Transforming local innovation into{" "}
-                <em style={{ color: ACCENT_BRIGHT, fontStyle: "italic" }}>global biotech solutions</em>
-                {" "}— for people, communities &amp; the natural world.
+                We exist to transform the potential of local innovation into global biotech solutions building sustainable systems, harnessing the power of data, and staying deeply committed to the health of people, communities, and the natural world.
               </p>
             </div>
 
