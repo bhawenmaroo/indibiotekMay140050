@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Link, useLocation } from "wouter";
+import { Link } from "wouter";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Tilt3D } from "@/components/Tilt3D";
@@ -41,7 +41,6 @@ const BG_ALT       = "#ECF3EE";
 const DARK_BG      = "#0E1C14";
 
 export default function Home() {
-  const [, navigate] = useLocation();
   const root = useRef<HTMLDivElement>(null);
   const heroBg = useParallax<HTMLDivElement>(0.20);
   const labParallax = useParallax<HTMLDivElement>(0.10);
@@ -820,8 +819,8 @@ export default function Home() {
                   >
                     NEWSLETTER — COMING SOON
                   </span>
-                  <button
-                    onClick={() => navigate("/gallery")}
+                  <a
+                    href={`${import.meta.env.BASE_URL}gallery`}
                     style={{
                       height: 48, padding: "0 22px", borderRadius: 10,
                       background: LIME, color: DARK_BG,
@@ -830,10 +829,11 @@ export default function Home() {
                       boxShadow: "0 8px 24px rgba(200,255,77,0.30)",
                       border: "none", cursor: "pointer",
                       display: "inline-flex", alignItems: "center",
+                      textDecoration: "none",
                     }}
                   >
                     EXPLORE GALLERY →
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
